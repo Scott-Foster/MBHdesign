@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533621866387.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "3|33|55|0|\n103|44|117|0|\n119|34|130|0|\n155|48|178|0|\n181|84|239|0|\n",
+    "hash" : "1185987234",
+    "id" : "3105D78A",
+    "lastKnownWriteTime" : 1576113126,
+    "last_content_update" : 1576113126113,
+    "path" : "~/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign/R/MBHdesign4.R",
+    "project_path" : "R/MBHdesign4.R",
+    "properties" : {
+        "cursorPosition" : "325,18",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

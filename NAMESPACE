@@ -1,0 +1,13 @@
+export( "alterInclProbs",
+"modEsti",
+"quasiSamp",
+"transectSamp",
+"findDescendingTrans",
+"findTransFromPoint")
+import( mgcv)
+import( geometry)
+import( randtoolbox)
+import( mvtnorm)
+import( stats)
+import( class)
+

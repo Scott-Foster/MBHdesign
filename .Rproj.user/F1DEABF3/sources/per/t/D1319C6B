@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1516763178647.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2017884260",
+    "id" : "D1319C6B",
+    "lastKnownWriteTime" : 1509332507,
+    "last_content_update" : 1509332507,
+    "path" : "~/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign/R/MBHdesign.R",
+    "project_path" : "R/MBHdesign.R",
+    "properties" : {
+        "cursorPosition" : "0,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

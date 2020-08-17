@@ -1,0 +1,24 @@
+citHeader("To cite the MBHdesign package in publications please use one (or both) of:")
+
+citEntry(
+	entry="Article",
+    title = "Flexible Spatially-Balanced Designs that Incorporate Legacy Sites",
+	author = personList(as.person("S.D. Foster"), as.person("G.R. Hosack"), as.person("E. Lawrence"), as.person("R. Przeslawski"), as.person( "P. Hedge"), as.person( "M.J. Caley"), as.person( "N.S. Barrett"), as.person( "J. Li"), as.person( "T. Lynch"), as.person( "J.M. Dambacher"), as.person( "H.P.A. Sweatman"), as.person( "K.R.Hayes")),
+	year = 2017,
+	journal="Methods in Ecology and Evolution",
+	volume= "8",
+	pages="1433-1442",
+	textVersion = paste("Foster, S.D., Hosack, G.R., Lawrence, E., Przeslawski, R., Hedge, P., Caley, M.J., Barrett, N.S., Li, J., Lynch, T. Dambacher, J.M., Sweatman, H.P.A. and Hayes, K.R. Flexible Spatially-Balanced Designs that Incorprorate Legacy Sites. Methods in Ecology and Evolution, 2017, 8, 1433-1442")
+)
+
+citEntry(
+	entry="Article",
+    title = "Spatially-Balanced Designs for Transect-Based Surveys",
+	author = personList(as.person("S.D. Foster"), as.person("G.R. Hosack"), as.person("J. Monk"), as.person("E. Lawrence"), as.person( "N.S. Barrett"), as.person( "A. Williams"), as.person("R. Przeslawski")),
+	year = "accepted",
+	journal="Methods in Ecology and Evolution",
+	volume= "",
+	pages="",
+	textVersion = paste("Foster, S.D., Hosack, G.R., J. Monk, Lawrence, E., Barrett, N.S., Williams, A. and Przeslawski, P. Spatially-Balanced Designs for Transect-Based Surveys. Methods in Ecology and Evolution (accepted)")
+)
+

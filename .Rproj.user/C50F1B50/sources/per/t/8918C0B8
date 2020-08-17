@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1544194264296.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2565903759",
+    "id" : "8918C0B8",
+    "lastKnownWriteTime" : 1571213566,
+    "last_content_update" : 1571213566,
+    "path" : "~/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign/vignettes/MBHdesign.Rnw",
+    "project_path" : "vignettes/MBHdesign.Rnw",
+    "properties" : {
+        "cursorPosition" : "77,129",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sweave"
+}
