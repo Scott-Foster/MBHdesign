@@ -1,0 +1,6 @@
+alterInclProbs                      Alters inclusion probabilities to accommodate legacy sites
+modEsti                             Get a model-based estimate of mean of a sampled area
+quasiSamp                           Generates a spatial design using Quasi-random numbers
+transectSamp                        Generates a transect-based spatial design
+findDescendingTrans                 Finds transects that are down-slope
+findTransFromPoint                  Finds transects that stem from a set of points
