@@ -1,0 +1,16 @@
+MBHdesign v2.2.1 (Release date: 2022-01-25)
+==============
+
+Changes:
+
+* Addition of function quasiSamp.raster for faster and less memory hungry methods for 2D raster surfaces.
+* Associated changes to help file, Description, Namespace etc.
+
+MBHdesign v2.1.9 (Release date: 2021-10-26)
+==============
+
+Changes:
+
+* Changes to vignette to accommodate changes in package dependency (spsurvey).
+* Changes to CITATION
+* Addition of NEWS (this file).

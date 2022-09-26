@@ -1,0 +1,25 @@
+{
+    "id": "8918C0B8",
+    "path": "~/MBHdesign/MBHdesign/vignettes/MBHdesign.Rnw",
+    "project_path": "vignettes/MBHdesign.Rnw",
+    "type": "sweave",
+    "hash": "3838396918",
+    "contents": "",
+    "dirty": false,
+    "created": 1544194264296.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "cursorPosition": "195,272",
+        "scrollLine": "0",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1635196461,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1635196461,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,4 @@
+[.]/R/funs[.]rda
+
+^.*\.Rproj$
+^\.Rproj\.user$
