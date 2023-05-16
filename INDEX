@@ -1,6 +1,9 @@
 alterInclProbs                      Alters inclusion probabilities to accommodate legacy sites
 modEsti                             Get a model-based estimate of mean of a sampled area
 quasiSamp                           Generates a spatial design using Quasi-random numbers
+quasiSamp.raster		    As per quasiSamp but takes a raster for 2d designs
 transectSamp                        Generates a transect-based spatial design
 findDescendingTrans                 Finds transects that are down-slope
 findTransFromPoint                  Finds transects that stem from a set of points
+alterInclProbs.cluster		    Finds working inclusion probabilities for 2-stage cluster sampling
+quasiSamp.cluster		    Generates a spatially-balanced clustered sample

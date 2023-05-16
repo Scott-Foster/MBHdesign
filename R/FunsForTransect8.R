@@ -628,7 +628,7 @@
     if( all( y %in% c(0,1,NA,NaN)) | all( y %in% c(0,-1,NA,NaN)))
       return( "descendAndNA_NaN")
     if( all( y %in% c(NA,NaN)))
-      return( allNA_NaN)
+      return( "allNA_NaN")
     if( all( y %in% c(0,1,-1)))
       return( "upAndDown")
     if( all( y %in% c(0,1,-1,NA,NaN)))

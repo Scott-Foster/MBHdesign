@@ -1,1068 +1,0 @@
-
-* checking R files for non-ASCII characters ... OK
-* checking R files for syntax errors ... OK
-* checking whether the package can be loaded ... OK
-* checking whether the package can be loaded with stated dependencies ... OK
-* checking whether the package can be unloaded cleanly ... OK
-* checking whether the namespace can be loaded with stated dependencies ... OK
-* checking whether the namespace can be unloaded cleanly ... OK
-* checking loading without being on the library search path ... OK
-* checking use of S3 registration ... OK
-* checking dependencies in R code ... OK
-* checking S3 generic/method consistency ... OK
-* checking replacement functions ... OK
-* checking foreign function calls ... OK
-* checking R code for possible problems ... OK
-* checking Rd files ... OK
-* checking Rd metadata ... OK
-* checking Rd line widths ... NOTE
-Rd file 'transectSamp.Rd':
-  \examples lines wider than 100 characters:
-     #note that 5 points on the transect line and 5 directions considered is probably cutting things a bit thin.
-     #This low-definition is done to avoid trouble with CRAN's checks (no example should take a long time to run).
-     samp <- transectSamp( n, potential.sites=X, inclusion.probs=p, control=list( transect.patter="line", nRotate=5, transect.nPts=5))
-
-These lines will be truncated in the PDF manual.
-* checking Rd cross-references ... OK
-* checking for missing documentation entries ... OK
-* checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... OK
-* checking Rd contents ... OK
-* checking for unstated dependencies in examples ... OK
-* checking sizes of PDF files under ‘inst/doc’ ... OK
-* checking installed files from ‘inst/doc’ ... OK
-* checking files in ‘vignettes’ ... OK
-* checking examples ... OK
-** found \donttest examples: check also with --run-donttest
-* checking for unstated dependencies in vignettes ... OK
-* checking package vignettes in ‘inst/doc’ ... OK
-* checking re-building of vignette outputs ... OK
-* checking PDF version of manual ... OK
-* DONE
-
-Status: 2 NOTEs
-See
-  ‘/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign.Rcheck/00check.log’
-for details.
-
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD check --as-cran MBHdesign_2.1.2.ttar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesigncheck --as-cran MBHdesign_2.1.2.ttar.gz 
-* using log directory ‘/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign.Rcheck’
-* using R version 3.4.3 (2017-11-30)
-* using platform: x86_64-pc-linux-gnu (64-bit)
-* using session charset: UTF-8
-* using option ‘--as-cran’
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* this is package ‘MBHdesign’ version ‘2.1.2’
-* checking CRAN incoming feasibility ...Warning: unable to access index for repository https://CRAN.R-project.org/src/contrib:
-  cannot open URL 'https://CRAN.R-project.org/src/contrib/PACKAGES'
-Warning: unable to access index for repository https://bioconductor.org/packages/3.6/bioc/src/contrib:
-  cannot open URL 'https://bioconductor.org/packages/3.6/bioc/src/contrib/PACKAGES'
-Warning: unable to access index for repository https://bioconductor.org/packages/3.6/data/annotation/src/contrib:
-  cannot open URL 'https://bioconductor.org/packages/3.6/data/annotation/src/contrib/PACKAGES'
-Warning: unable to access index for repository https://bioconductor.org/packages/3.6/data/experiment/src/contrib:
-  cannot open URL 'https://bioconductor.org/packages/3.6/data/experiment/src/contrib/PACKAGES'
-Warning in url(sprintf("%s/src/contrib/PACKAGES.gz", u), "rb") :
-  URL 'https://CRAN.R-project.org/src/contrib/PACKAGES.gz': status was 'Couldn't resolve host name'
-NB: need Internet access to use CRAN incoming checks
- Note_to_CRAN_maintainers
-Maintainer: ‘Scott Foster <scott.foster@csiro.au>’
-* checking package namespace information ... OK
-* checking package dependencies ...Warning: unable to access index for repository https://CRAN.R-project.org/src/contrib:
-  cannot open URL 'https://CRAN.R-project.org/src/contrib/PACKAGES'
-Warning: unable to access index for repository https://bioconductor.org/packages/3.6/bioc/src/contrib:
-  cannot open URL 'https://bioconductor.org/packages/3.6/bioc/src/contrib/PACKAGES'
-Warning: unable to access index for repository https://bioconductor.org/packages/3.6/data/annotation/src/contrib:
-  cannot open URL 'https://bioconductor.org/packages/3.6/data/annotation/src/contrib/PACKAGES'
-Warning: unable to access index for repository https://bioconductor.org/packages/3.6/data/experiment/src/contrib:
-  cannot open URL 'https://bioconductor.org/packages/3.6/data/experiment/src/contrib/PACKAGES'
- OK
-* checking if this is a source package ... OK
-* checking if there is a namespace ... OK
-* checking for executable files ... OK
-* checking for hidden files and directories ... OK
-* checking for portable file names ... OK
-* checking for sufficient/correct file permissions ... OK
-* checking whether package ‘MBHdesign’ can be installed ... OK
-* checking installed package size ... OK
-* checking package directory ... OK
-* checking ‘build’ directory ... OK
-* checking DESCRIPTION meta-information ... OK
-* checking top-level files ... NOTE
-Non-standard file/directory found at top level:
-  ‘Rplots.pdf’
-* checking for left-over files ... OK
-* checking index information ... OK
-* checking package subdirectories ... OK
-* checking R files for non-ASCII characters ... OK
-* checking R files for syntax errors ... OK
-* checking whether the package can be loaded ... OK
-* checking whether the package can be loaded with stated dependencies ... OK
-* checking whether the package can be unloaded cleanly ... OK
-* checking whether the namespace can be loaded with stated dependencies ... OK
-* checking whether the namespace can be unloaded cleanly ... OK
-* checking loading without being on the library search path ... OK
-* checking use of S3 registration ... OK
-* checking dependencies in R code ... OK
-* checking S3 generic/method consistency ... OK
-* checking replacement functions ... OK
-* checking foreign function calls ... OK
-* checking R code for possible problems ... OK
-* checking Rd files ... OK
-* checking Rd metadata ... OK
-* checking Rd line widths ... OK
-* checking Rd cross-references ... OK
-* checking for missing documentation entries ... OK
-* checking for code/documentation mismatches ... OK
-* checking Rd \usage sections ... OK
-* checking Rd contents ... OK
-* checking for unstated dependencies in examples ... OK
-* checking sizes of PDF files under ‘inst/doc’ ... OK
-* checking installed files from ‘inst/doc’ ... OK
-* checking files in ‘vignettes’ ... OK
-* checking examples ... OK
-** found \donttest examples: check also with --run-donttest
-* checking for unstated dependencies in vignettes ... OK
-* checking package vignettes in ‘inst/doc’ ... OK
-* checking re-building of vignette outputs ... OK
-* checking PDF version of manual ... OK
-* DONE
-
-Status: 1 NOTE
-See
-  ‘/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign.Rcheck/00check.log’
-for details.
-
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD check --as-cran MBHdesign_2.1.2.ttar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesigncheck --as-cran MBHdesign_2.1.2.ttar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccheck --as-cran MBHdesign_2.1.2.ttar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccheck --as-cran MBHdesign_2.1.2.ttar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[3PMBHdesign_2.1.2.tar.gz 
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C--as-cran MBHdesign_2.1.2.ttar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[3PMBHdesign_2.1.2.tar.gz 
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6Pbuild --force MBHdesigncheck MBHdesign_2.1.2.tar.gz [6Pbuild --force MBHdesigncheck MBHdesign_2.1.2.tar.gz [6Pbuild --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/librrary MBHdesign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign[00m$ [C[C[C[C[C[Cbuild --force MBHdesign[K
- ERROR
-cannot change to directory ‘MBHdesign’
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign/MBHdesign[00m$ cd ..
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ cd ..R CMD build --force MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesigncd ..[KR CMD build --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpdIf6qb/Rbuild5bf92391b77f/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-Warning: /tmp/Rtmpau22r6/R.INSTALL5dab1b342d75/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/Rtmp4vCZad/Rbuild142f49dd0201/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... ERROR
-Warning in remind_sweave(if (in.file) input, sweave_lines) :
-  It seems you are using the Sweave-specific syntax in line(s) 47; you may need Sweave2knitr("MBHdesign.Rnw") to convert it to knitr
-Error: processing vignette 'MBHdesign.Rnw' failed with diagnostics:
-duplicate label 'legacySites'
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpXupv2H/Rbuild14771fafe9e4/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... ERROR
-Error: processing vignette 'MBHdesign.Rnw' failed with diagnostics:
-duplicate label 'legacySites'
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpRUKXaU/Rbuild14cb205900d5/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... ERROR
-Loading required package: sp
-
-Version 3.3 of the spsurvey package was loaded successfully.
-
-No study.area defined. Using a rectangle based on the extreme locations in potential.sites
-Quitting from lines 273-282 (MBHdesign.Rnw) 
-Error: processing vignette 'MBHdesign.Rnw' failed with diagnostics:
-object 'p' not found
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpDnRrUw/Rbuild173f6db7ef45/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-R CMD build --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-Warning: /tmp/RtmpAQR6Kj/R.INSTALL1a0e393baf39/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpR8eXPy/Rbuild1b25730a4e4e/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-Warning: /tmp/RtmpUnMDBb/R.INSTALL1d284a803b76/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/Rtmp9fqGTo/Rbuild1d413434c3a6/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesignINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-Warning: /tmp/Rtmpfb6kpr/R.INSTALL1f34d7da94b/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-exitwhereis fstablapack.soecho $LD_LIBRARY_PATH[4PPATHSR CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpSTANpZ/Rbuildf475fb28de9/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* removing ‘INDEX’ as ‘--force’ was given
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.2.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build --force MBHdesignexit[Kwhereis fstablapack.soecho $LD_LIBRARY_PATH[4PPATHSR CMD INSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz [A]0;fos085@banana-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@banana-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[9Pbuild --force MBHdesign
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CINSTALL -l ~/lib/R/library MBHdessign_2.1.2.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-Warning: /tmp/RtmpTgIwwQ/R.INSTALL113f230eacc5/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-[K]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ exitdev.offls[Kcd ..[3Plscd disksda1ls[Kcd /devsudo ntfsfix /dev/sdb1apt-get install ntfsprogsexit[Ksudo apt-get install libpangox-1.0-0[15P./vpn_install.shapt-get install libpangox-1.0-0exit[Ksudo apt-get install ntfsprogs[8Pntfsfix /dev/sdb1cd /dev[Kls[Kcd sda1diskls[Kcd ..[3Plsdev.off[3Pexit[Kls
-[0m[01;32mCITATION[0m                 [01;32mMBHdesign_1.0.34.tar.gz[0m  [01;32mMBHdesign_1.0.56.tar.gz[0m  [01;32mMBHdesign_1.0.72.tar.gz[0m                       [01;32mMBHdesign_2.0.4.tar.gz[0m
-[01;32mDESCRIPTION[0m              [01;32mMBHdesign_1.0.35.tar.gz[0m  [01;32mMBHdesign_1.0.58.tar.gz[0m  [01;32mMBHdesign_1.0.73.tar.gz[0m                       [01;32mMBHdesign_2.0.5.tar.gz[0m
-[01;32mdoc2Rd.info.rda[0m          [01;32mMBHdesign_1.0.36.tar.gz[0m  [01;32mMBHdesign_1.0.59.tar.gz[0m  [01;32mMBHdesign_1.0.74.tar.gz[0m                       [01;32mMBHdesign_2.1.0.tar.gz[0m
-[34;42mMBHdesign[0m                [01;32mMBHdesign_1.0.37.tar.gz[0m  [01;32mMBHdesign_1.0.5.tar.gz[0m   [01;32mMBHdesign_1.0.75.tar.gz[0m                       [01;32mMBHdesign_2.1.1.tar.gz[0m
-[01;32mMBHdesign_1.0.10.tar.gz[0m  [01;32mMBHdesign_1.0.39.tar.gz[0m  [01;32mMBHdesign_1.0.60.tar.gz[0m  [01;32mMBHdesign_1.0.76.tar.gz[0m                       [01;32mMBHdesign_2.1.2.tar.gz[0m
-[01;32mMBHdesign_1.0.12.tar.gz[0m  [01;32mMBHdesign_1.0.3.tar.gz[0m   [01;32mMBHdesign_1.0.61.tar.gz[0m  [01;32mMBHdesign_1.0.77.tar.gz[0m                       [01;32mMBHdesign.pdf[0m
-[01;32mMBHdesign_1.0.13.tar.gz[0m  [01;32mMBHdesign_1.0.40.tar.gz[0m  [01;32mMBHdesign_1.0.62.tar.gz[0m  [01;32mMBHdesign_1.0.78.tar.gz[0m                       [34;42mMBHdesign_preRstudio[0m
-[01;32mMBHdesign_1.0.14.tar.gz[0m  [01;32mMBHdesign_1.0.41.tar.gz[0m  [01;32mMBHdesign_1.0.62.zip[0m     [01;32mMBHdesign_1.0.79.tar.gz[0m                       [34;42mMBHdesign.Rcheck[0m
-[01;32mMBHdesign_1.0.16.tar.gz[0m  [01;32mMBHdesign_1.0.42.tar.gz[0m  [01;32mMBHdesign_1.0.63.tar.gz[0m  [01;32mMBHdesign_1.0.7.tar.gz[0m                        [01;32mMBHdesign.Rproj[0m
-[01;32mMBHdesign_1.0.17.tar.gz[0m  [01;32mMBHdesign_1.0.43.tar.gz[0m  [01;32mMBHdesign_1.0.64.tar.gz[0m  [01;32mMBHdesign_1.0.7.zip[0m                           [34;42moldRcode[0m
-[01;32mMBHdesign_1.0.25.tar.gz[0m  [01;32mMBHdesign_1.0.44.tar.gz[0m  [01;32mMBHdesign_1.0.65.tar.gz[0m  [01;32mMBHdesign_1.0.8.tar.gz[0m                        [34;42moldRfuncs[0m
-[01;32mMBHdesign_1.0.27.tar.gz[0m  [01;32mMBHdesign_1.0.45.tar.gz[0m  [01;32mMBHdesign_1.0.66.tar.gz[0m  [01;32mMBHdesign_1.0.9.tar.gz[0m                        [01;32mSpatBal1.png[0m
-[01;32mMBHdesign_1.0.28.tar.gz[0m  [01;32mMBHdesign_1.0.46.tar.gz[0m  [01;32mMBHdesign_1.0.67.tar.gz[0m  [01;32mMBHdesign_2.0.0_R_x86_64-pc-linux-gnu.tar.gz[0m  [01;32mtime1.png[0m
-[01;32mMBHdesign_1.0.29.tar.gz[0m  [01;32mMBHdesign_1.0.47.tar.gz[0m  [01;32mMBHdesign_1.0.68.tar.gz[0m  [01;32mMBHdesign_2.0.0.tar.gz[0m                        [34;42mtmp[0m
-[01;32mMBHdesign_1.0.2.tar.gz[0m   [01;32mMBHdesign_1.0.48.tar.gz[0m  [01;32mMBHdesign_1.0.69.tar.gz[0m  [01;32mMBHdesign_2.0.1.tar.gz[0m                        [34;42mvignettes[0m
-[01;32mMBHdesign_1.0.30.tar.gz[0m  [01;32mMBHdesign_1.0.4.tar.gz[0m   [01;32mMBHdesign_1.0.6.tar.gz[0m   [01;32mMBHdesign_2.0.2.tar.gz[0m
-[01;32mMBHdesign_1.0.32.tar.gz[0m  [01;32mMBHdesign_1.0.54.tar.gz[0m  [01;32mMBHdesign_1.0.6.zip[0m      [01;32mMBHdesign_2.0.3.tar.gz[0m
-[01;32mMBHdesign_1.0.33.tar.gz[0m  [01;32mMBHdesign_1.0.55.tar.gz[0m  [01;32mMBHdesign_1.0.70.tar.gz[0m  [01;32mMBHdesign_2.0.3.zip[0m
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign_2.2.1.2[1P.1.2[1P1.2[C[C[C.tar.gz ls[Kexitdev.offls[Kcd ..[3Plscd disksda1ls[Kcd /devsudo ntfsfix /dev/sdb1apt-get install ntfsprogsexit[Ksudo apt-get install libpangox-1.0-0[15P./vpn_install.sh[5P./vpn_install.sh[10Pcd vpn./vpn_install.shcd anyconnect-linux64-4.6.02074/ls[Ktar xzvf anyconnect-linux64-4.6.02074-predeploy-k9.tar.gz ls[Kcd Software/anyconnect/sudo apt-get install lib32z1 lib32ncurses5update[Kexit[KR[Ksudo make installmake[K./configure --enable-R-shlib --with-tcltkmake clean[K[K./configure --enable-R-shlib --with-tcltkmake clean[Kcd R-3.5.1/Software/R/Source/exit[Ksudo apt-get install -fdpkg -i ./rstudio-xenial-1.1.463-amd64.deb ls[Kcd Software/Rstudio/exit[KR[Ksudo make installmake[K clean./configure --enable-R-shlib --with-tcltkcd R-3.5.1/[KSoftware/R/Source/./configure --enable-R-shlib --with-tcltkR[KexitR[K./configure --enable-R-shlib --with-tcltkR[KexitR[Ksudo make install[5P[C[C[C[C[C[C[C[C[C[C[C[C[2Pcheck[K./configure --enable-R-shlib --with-tcltkmake clean[Kcd ../R-3.5.1/[3P=3.5[1Pmake cleancd R-3.4.2/[1Pmake cleanls[Kcd Software/R/Source/exit[Ksudo apt install vpnc network-manager-vpnc network-manager-vpnc-gnome[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Ksudo vi /etc/fstabgedit[Kanynaysudo geany /etc/fstabdit[C[C[C[C[C[C[C[C[C[C[Cexit[Ksudo apt-get install chrome-gnome-shellmy-weather-indicatorupdate[Kdd-apt-repository ppa:atareao/atareao-r ppa:indicator-multiload/stable-daily [10Pppa:gnome-shell-extensions/ppa[11Patareao/atareao-r ppa:gnome-shell-extensions/ppa[14Pppa:atareao/atareao[4Ppt-get install chrome-gnome-shellgir1.2-gtop-2.0 gir1.2-networkmanager-1.0  gir1.2-clutter-1.0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[47P install chrome-gnome-shellindicator-multiloadexit[Ksudo apt install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0 gir1.2-clutter-1.0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Pdd-apt-repository ppa:indicator-multiload/stable-daily java -version[Ksudo apt-get install oracle-java8-installerupdate[Kdd-apt-repository ppa:webupd8team/javaexit[K./configure --enable-R-shlib --with-tcltkecho $PATH[Kwhereis lapack.soecho $LD_LIBRARY_PATH[4Pwhereis lapack.so[7Pecho $PATHwhereis lapack.soecho $LD_LIBRARY_PATH[4PPATHS[K[KIB_PATHS[Kmake[K./configure --enable-R-shlib --with-tcltkcd R-3.4.2/[Ktar -xf R-3.4.2.tar.gzcd ..[Ktar -xf R-3.4.2.tar.gz[11Pcd R-3.4.2/[7Pmake clean./configure --enable-R-shlib --with-tcltkls[Kcd R-3.5.1/tar -xf R-3.5.1.tar.gzls[Kcd ..tar -xf R-3.5.1.tar.gz[12Pmake clean[K clean[K clean./configure --enable-R-shlib --with-tcltkmake clean[K[K[2Plsmake cleangedit tmp.txt [1Pmake >tmp.txt[3Pclean[K clean[K./configure --enable-R-shlib --with-blas="/usr/lib/x86_64-linux-gnu"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ../[K./configure --enable-R-shlib --with-blas="/usr/lib/x86_64-linux-gnu"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[28Pcd ~/Software/R/Source/R-3.5.1//modules/ls[Kcd ~/Software/R/Source/R-3.5.1/modules/[22Pwhereis liblapackmake[K./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas="/usr/lib/x86_64-linuxx-gnu"[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ make[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas='/usr/lib/x86_64-linuxx-gnu'[K[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ whereis libblas[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmake[K./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blasmake[K./configure --enable-R-shlib --prefixcd R-3.5.1/[Ktar -xf R-3.5.1.tar.gzls[Kcd ~/Software/R/Source/ls[Krm *.partls[Ktar -xf R-3.5.1.tar.gzls[Krm -r R-3.5.1D[C[C[C[C[C[C[C[C[3PR-3.5.1ls[Kcd ..tar -xf R-3.5.1.tar.gzmake[K./configure --enable-R-shlibmake[K./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blaswhereis libblas[K[5Pecho $PATHLAPACK_LIBS[2PBLAS_LIBSwhereis liblapackmake[K./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas --with-lapack --prefixx=/opt/R/3.5.1[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ ls /opt/R[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwhereis liblapack[2Pblasmake[K./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas --with-lapack[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kcd R-3.5.1/ls[Kcd Software/R/Source/exit[K./configure --enable-R-shlib[1Psudo apt-get install fort77./configure --enable-R-shlib[Kls[Kcd R-3.5.1/ls[K./configuretar -xf R-3.5.1.tar.gz[1Pcd Software/R/Source/exit[Kssh -X BOOMER.it.csiro.auexit[Kcd Software/R/Source/tar -xf R-3.5.1.tar.gz[11P./configurels[Kcd R-3.5.1/ls[K./configure --enable-R-shlib[1Psudo apt-get install fort77./configure --enable-R-shlibexit[Kcd Software/R/Source/ls[Kcd R-3.5.1/ls[K./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas --with-lapack[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmake[Kwhereis libblaslapack[8Pls /opt/R./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas --with-lapack --prefixx=/opt/R/3.5.1[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ make[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwhereis liblapack[2Pecho $BLAS_LIBSLAPACK_LIBS[7PPATHwhereis libblas./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blasmake[K./configure --enable-R-shlibmake[Ktar -xf R-3.5.1.tar.gzcd ..[K[3Plsrm R-3.5.1-D R-3.5.1r[C[C[C[C[C[C[C[Cls[Ktar -xf R-3.5.1.tar.gzls[Krm *.part[K[2Plscd ~/Software/R/Source/ls[Ktar -xf R-3.5.1.tar.gz[11Pcd R-3.5.1/./configure --enable-R-shlib --prefixmake[K./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blasmake[Kwhereis libblas./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas='/usr/lib/x86_64-linuxx-gnu'[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ make[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./configure --enable-R-shlib --prefix=/opt/R/3.5.1 --with-blas="/usr/lib/x86_64-linuxx-gnu"[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ make[K
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwhereis liblapackcd ~/Software/R/Source/R-3.5.1/modules/ls[Kcd ~/Software/R/Source/R-3.5.1//modules/./configure --enable-R-shlib --with-blas="/usr/lib/x86_64-linux-gnu"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ../[K./configure --enable-R-shlib --with-blas="/usr/lib/x86_64-linux-gnu"[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmake[K clean[K clean>tmp.txtgedit tmp.txt [4Pmake cleanls[Kmake clean./configure --enable-R-shlib --with-tcltkmake clean[K[K clean[K cleantar -xf R-3.5.1.tar.gzcd ..[K[3Plstar -xf R-3.5.1.tar.gz[11Pcd R-3.5.1/ls[K./configure --enable-R-shlib --with-tcltkmake clean[K[Kcd R-3.4.2/tar -xf R-3.4.2.tar.gzcd ..[Ktar -xf R-3.4.2.tar.gz[11Pcd R-3.4.2/./configure --enable-R-shlib --with-tcltkmake[Kecho $LIB_PATHS[3PD_LIBPATHSRARY_PATH[4Pwhereis lapack.so[7Pecho $PATH./configure --enable-R-shlib --with-tcltkexit[Ksudo add-apt-repository ppa:webupd8team/java[25Ppt-get updateinstall oracle-java8-installerjava -version[Ksudo add-apt-repository ppa:indicator-multiload/stable-daily pt install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0 gir1.2-clutter-1.0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Ksudo apt install indicator-multiload[1Pchrome-gnome-shell-get install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0  gir1.2-clutter-1.0chrome-gnome-shell[Kdd-apt-repository ppa:atareao/atareao-r ppa:gnome-shell-extensions/ppa[14Pppa:atareao/atareaognome-shell-extensions/ppa-r ppa:indicator-multiload/stable-daily [21Pppa:atareao/atareao[24Ppt-get updateinstall my-weather-indicator[2Pchrome-gnome-shellexit[Ksudo gedit /etc/fstabany[C[C[C[C[C[C[C[C[C[C[Cgenay[Kanyditsudo vi /etc/fstabexit[Kapt install vpnc network-manager-vpnc network-manager-vpnc-gnome[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5@sudo [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kcd Software/R/Source/ls[Kmake cleancd R-3.4.2/[1Pmake cleancd ../R=3.5-3.5.1/[4Pmake clean./configure --enable-R-shlib --with-tcltkmake[K checkinstall[5@sudo [C[C[C[C[C[C[C[C[C[C[C[CR[KexitR[K./configure --enable-R-shlib --with-tcltk[20Pcd Software/R/Source/[10PR-3.5.1/./configure --enable-R-shlib --with-tcltkmake clean[K[Ksudo make installR[Kexitcd Software/Rstudio/ls[Ksudo dpkg -i ./rstudio-xenial-1.1.463-amd64.deb [25Papt-get install -fexit[Kcd Software/R/Source/[10PR-3.5.1/[1Pmake clean./configure --enable-R-shlib --with-tcltkmake[K clean./configure --enable-R-shlib --with-tcltkmake[Ksudo make installR[Kexitsudo apt-get updateinstall lib32z1 lib32ncurses5[19Pcd Software/anyconnect/ls[Ktar xzvf anyconnect-linux64-4.6.02074-predeploy-k9.tar.gz ls[Kcd anyconnect-linux64-4.6.02074/[16P./vpn_install.sh[10Pcd vpn./vpn_install.shsudo ./vpn_install.shapt-get install libpangox-1.0-0exit[Ksudo apt-get install ntfsprogs[8Pntfsfix /dev/sdb1cd /dev[Kls[Kcd sda1diskls[Kcd ..[3Plsdev.off[3Pexit[2PlsR CMD build MBHdesign_2.1.2.tar.gz 
- ERROR
-cannot change to directory ‘MBHdesign_2.1.2.tar.gz’
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign_2.1.2.tar.gz [K[K[K[K[K[K[K[K[K[K[K[K[K[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/Rtmpg6py5q/Rbuild49a5b791263/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-Error in loadVignetteBuilder(pkgdir, TRUE) : 
-  vignette builder 'knitr' not found
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpFSpv0H/Rbuild569a2c86ac00/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-      -----------------------------------
-ERROR: dependencies ‘geometry’, ‘randtoolbox’, ‘mvtnorm’ are not available for package ‘MBHdesign’
-* removing ‘/tmp/RtmpFSpv0H/Rinst569ab80014b/MBHdesign’
-      -----------------------------------
-ERROR: package installation failed
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpRZ3Pks/Rbuild5f3c7fbac538/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-      -----------------------------------
-ERROR: dependency ‘mvtnorm’ is not available for package ‘MBHdesign’
-* removing ‘/tmp/RtmpRZ3Pks/Rinst5f3c1baef6f7/MBHdesign’
-      -----------------------------------
-ERROR: package installation failed
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpVNCnZz/Rbuild5f8113a2630b/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... ERROR
-Quitting from lines 187-200 (MBHdesign.Rnw) 
-Error: processing vignette 'MBHdesign.Rnw' failed with diagnostics:
-there is no package called 'spsurvey'
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpjSkx4O/Rbuild6c4038e2e42b/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ...R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3. .tar.gz OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/RtmptcCLJ6/R.INSTALL72b946445f78/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpfcbjMl/Rbuild743063f873b9/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... ERROR
-Quitting from lines 135-147 (MBHdesign.Rnw) 
-Error: processing vignette 'MBHdesign.Rnw' failed with diagnostics:
-Failed to find a design. It is possible that the inclusion probabilities are very low and uneven OR that the sampling area is very irregular (e.g. long and skinny) OR something else. Please try again (less likely to work) OR make inclusion probabilities more even (more likely but possibly undesireable) OR increase the number of sites considered (likely but computationally expensive).
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpsF1bcP/Rbuild74813a70edf4/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/RtmpmWIAw6/R.INSTALL77006679a7d8/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpHrjQfu/Rbuild786f41256625/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/RtmpknAbLE/R.INSTALL7ada16ec0f04/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-[K]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ exit[1Ptop./backupScript.sh &[6Psudo mount -a[5P[C[C[C[C[C[C[C[C./backupScript.sh &ls[KexitrstudioR CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/RtmpxvGlQm/R.INSTALL768c316d5cf/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzexit[K[1Ptop./backupScript.sh &[6Psudo mount -a[5P[C[C[C[C[C[C[C[C./backupScript.sh &ls[KexitrstudioR CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpC7vwMJ/Rbuild769d5070b4d1/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... ERROR
-Error: processing vignette 'MBHdesign.Rnw' failed with diagnostics:
-duplicate label 'transTidy'
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/Rtmp55g4vp/Rbuild76f065aa5306/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... ERROR
-Loading required package: sp
-
-Version 3.4 of the spsurvey package was loaded successfully.
-
-No study.area defined. Using a rectangle based on the extreme locations in potential.sites
-Adjusting Inclusion Probabilities for Transect Pattern.
-Iteration : Agreement-Criterion
-1 : Inf
-2 : 0.2662
-3 : 0.1779
-4 : 0.1336
-5 : 0.1098
-6 : 0.0947
-7 : 0.0836
-8 : 0.075
-9 : 0.0686
-10 : 0.0637
-11 : 0.0603
-12 : 0.0578
-13 : 0.0558
-14 : 0.054
-15 : 0.0523
-16 : 0.0506
-17 : 0.0495
-18 : 0.0483
-19 : 0.0473
-20 : 0.0464
-21 : 0.0455
-22 : 0.0446
-23 : 0.0439
-24 : 0.0432
-25 : 0.0426
-Loading required package: spam
-Loading required package: dotCall64
-Loading required package: grid
-Spam version 2.2-0 (2018-06-19) is loaded.
-Type 'help( Spam)' or 'demo( spam)' for a short introduction 
-and overview of this package.
-Help for individual functions is also obtained by adding the
-suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
-
-Attaching package: 'spam'
-
-The following objects are masked from 'package:base':
-
-    backsolve, forwardsolve
-
-Loading required package: maps
-See www.image.ucar.edu/~nychka/Fields for
- a vignette and other supplements. 
-No study.area defined. Using a rectangle based on the extreme locations in potential.sites
-No study.area defined. Using a rectangle based on the extreme locations in potential.sites
-No inclusion.probs supplied, assuming uniform throughout study.area
-Adjusting Inclusion Probabilities for Transect Pattern.
-Iteration : Agreement-Criterion
-1 : Inf
-2 : 0.3086
-3 : 0.1948
-4 : 0.1501
-5 : 0.1269
-6 : 0.1126
-7 : 0.1018
-8 : 0.0936
-9 : 0.0872
-10 : 0.0824
-11 : 0.0785
-12 : 0.0753
-13 : 0.0727
-14 : 0.0705
-15 : 0.0687
-16 : 0.0671
-17 : 0.0657
-18 : 0.0645
-19 : 0.0639
-20 : 0.0625
-21 : 0.0638
-22 : 0.0618
-23 : 0.0685
-24 : 0.0686
-Quitting from lines 351-355 (MBHdesign.Rnw) 
-Error: processing vignette 'MBHdesign.Rnw' failed with diagnostics:
-object 'samp' not found
-Execution halted
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ lso()
-> 
-> ^C
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ lso()R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/Rtmp7cS8fc/Rbuild7bc52b1f946f/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignlso()[KR CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/RtmpD0ASYS/R.INSTALL7faa530450/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpSUwgcw/Rbuild10ad2a06c027/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/RtmpQGLzCF/R.INSTALL14918ce902c/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpQTgfWY/Rbuild1631647f3444/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/Rtmpi9DjZc/R.INSTALL1a735d5c98c9/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/Rtmpy7ae6g/Rbuild1cb743b5f10e/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/Rtmp3Y2PC6/R.INSTALL245712a2ac7/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpTltHep/Rbuild278c333cdcc3/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/Rtmp34dyYu/R.INSTALL2d63614d3b7f/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmpFYNPPs/Rbuild61c056c3d3d/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/Rtmpq4bxIa/R.INSTALL68b667c9fbe2/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-R CMD INSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gzbuild MBHdesign[K
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-Warning: /tmp/RtmphlmVUG/Rbuild6dd95a8738e9/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-Warning: man/findDescendingTrans.Rd:18: unknown macro '\cold'
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.3.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD build MBHdesignINSTALL -l ~/lib/R/library MBHdesign_2.1.3.tar.gz
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-Warning: /tmp/RtmpxuY2dD/R.INSTALL71a25109d8dc/MBHdesign/man/findDescendingTrans.Rd:18: unknown macro '\cold'
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-[K]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ exittop -u fos085kill -9 6827 6659[4Ptop -u fos085kill -9 4912 4774[4Ptop -u fos085kill -9 3516 2771[4Ptop -u fos085exit[Ktop -u fos085exit[Ktop -u fos085kill -9 3516 2771[4Ptop -u fos085kill -9 4912 4774[4Ptop -u fos085kill -9 6827 6659[4Ptop -u fos085exit[K[K^C
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ ^C[KR CMD INSTALL -;[Kl ~/lib/R/library MBHdesign_2.1.3.tar.gz [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kexittop -u fos085exit[K[KR CMD INSTGALL [K[K[K[K[Kall[K[K[K[KTALL -l ~/lib/R/library MBHdesign_2.3[K1.3.tar.gz 
-* installing *source* package ‘MBHdesign’ ...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded
-* DONE (MBHdesign)
-[K]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMDB[K build MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.5.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD INSTALL -l ~/lib/R/library MBHdesign2.1.5._2.1.5. [A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-tar.gz2.1.5.[1P.1.5.[1P1.5.[1P.5.[1P5.[1P.[K
-* installing *source* package ‘MBHdesign’ ...
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (MBHdesign)
-R CMD bi[Kuild MBHdesign
-* checking for file ‘MBHdesign/DESCRIPTION’ ... OK
-* preparing ‘MBHdesign’:
-* checking DESCRIPTION meta-information ... OK
-* checking whether ‘INDEX’ is up-to-date ... NO
-* use ‘--force’ to remove the existing ‘INDEX’
-* installing the package to build vignettes
-* creating vignettes ... OK
-* checking for LF line-endings in source and make files and shell scripts
-* checking for empty or unneeded directories
-* building ‘MBHdesign_2.1.6.tar.gz’
-Warning: invalid uid value replaced by that for user 'nobody'
-Warning: invalid gid value replaced by that for user 'nobody'
-
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD INSTALL -;[Kl ~/lia[Kbryar[K[K[Kary/R/lib MBHdesign_2.2.6. tar.gz
-Warning: invalid package ‘MBHdesign_2.2.6.tar.gz’
-Error: ERROR: no packages specified
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ ls
-[0m[01;32mdoc2Rd.info.rda[0m          [01;32mMBHdesign_1.0.48.tar.gz[0m  [01;32mMBHdesign_1.0.7.tar.gz[0m
-[34;42mMBHdesign[0m                [01;32mMBHdesign_1.0.4.tar.gz[0m   [01;32mMBHdesign_1.0.7.zip[0m
-[01;32mMBHdesign_1.0.10.tar.gz[0m  [01;32mMBHdesign_1.0.54.tar.gz[0m  [01;32mMBHdesign_1.0.8.tar.gz[0m
-[01;32mMBHdesign_1.0.12.tar.gz[0m  [01;32mMBHdesign_1.0.55.tar.gz[0m  [01;32mMBHdesign_1.0.9.tar.gz[0m
-[01;32mMBHdesign_1.0.13.tar.gz[0m  [01;32mMBHdesign_1.0.56.tar.gz[0m  [01;32mMBHdesign_2.0.0_R_x86_64-pc-linux-gnu.tar.gz[0m
-[01;32mMBHdesign_1.0.14.tar.gz[0m  [01;32mMBHdesign_1.0.58.tar.gz[0m  [01;32mMBHdesign_2.0.0.tar.gz[0m
-[01;32mMBHdesign_1.0.16.tar.gz[0m  [01;32mMBHdesign_1.0.59.tar.gz[0m  [01;32mMBHdesign_2.0.1.tar.gz[0m
-[01;32mMBHdesign_1.0.17.tar.gz[0m  [01;32mMBHdesign_1.0.5.tar.gz[0m   [01;32mMBHdesign_2.0.2.tar.gz[0m
-[01;32mMBHdesign_1.0.25.tar.gz[0m  [01;32mMBHdesign_1.0.60.tar.gz[0m  [01;32mMBHdesign_2.0.3.tar.gz[0m
-[01;32mMBHdesign_1.0.27.tar.gz[0m  [01;32mMBHdesign_1.0.61.tar.gz[0m  [01;32mMBHdesign_2.0.3.zip[0m
-[01;32mMBHdesign_1.0.28.tar.gz[0m  [01;32mMBHdesign_1.0.62.tar.gz[0m  [01;32mMBHdesign_2.0.4.tar.gz[0m
-[01;32mMBHdesign_1.0.29.tar.gz[0m  [01;32mMBHdesign_1.0.62.zip[0m     [01;32mMBHdesign_2.0.5.tar.gz[0m
-[01;32mMBHdesign_1.0.2.tar.gz[0m   [01;32mMBHdesign_1.0.63.tar.gz[0m  [01;32mMBHdesign_2.1.0.tar.gz[0m
-[01;32mMBHdesign_1.0.30.tar.gz[0m  [01;32mMBHdesign_1.0.64.tar.gz[0m  [01;32mMBHdesign_2.1.1.tar.gz[0m
-[01;32mMBHdesign_1.0.32.tar.gz[0m  [01;32mMBHdesign_1.0.65.tar.gz[0m  [01;32mMBHdesign_2.1.2.tar.gz[0m
-[01;32mMBHdesign_1.0.33.tar.gz[0m  [01;32mMBHdesign_1.0.66.tar.gz[0m  [01;31mMBHdesign_2.1.3.tar.gz[0m
-[01;32mMBHdesign_1.0.34.tar.gz[0m  [01;32mMBHdesign_1.0.67.tar.gz[0m  [01;31mMBHdesign_2.1.4.tar.gz[0m
-[01;32mMBHdesign_1.0.35.tar.gz[0m  [01;32mMBHdesign_1.0.68.tar.gz[0m  [01;31mMBHdesign_2.1.5.tar.gz[0m
-[01;32mMBHdesign_1.0.36.tar.gz[0m  [01;32mMBHdesign_1.0.69.tar.gz[0m  [01;31mMBHdesign_2.1.6.tar.gz[0m
-[01;32mMBHdesign_1.0.37.tar.gz[0m  [01;32mMBHdesign_1.0.6.tar.gz[0m   MBHdesign.pdf
-[01;32mMBHdesign_1.0.39.tar.gz[0m  [01;32mMBHdesign_1.0.6.zip[0m      [34;42mMBHdesign_preRstudio[0m
-[01;32mMBHdesign_1.0.3.tar.gz[0m   [01;32mMBHdesign_1.0.70.tar.gz[0m  [01;34mMBHdesign.Rcheck[0m
-[01;32mMBHdesign_1.0.40.tar.gz[0m  [01;32mMBHdesign_1.0.72.tar.gz[0m  [01;32mMBHdesign.Rproj[0m
-[01;32mMBHdesign_1.0.41.tar.gz[0m  [01;32mMBHdesign_1.0.73.tar.gz[0m  [34;42moldRcode[0m
-[01;32mMBHdesign_1.0.42.tar.gz[0m  [01;32mMBHdesign_1.0.74.tar.gz[0m  [34;42moldRfuncs[0m
-[01;32mMBHdesign_1.0.43.tar.gz[0m  [01;32mMBHdesign_1.0.75.tar.gz[0m  [01;32mSpatBal1.png[0m
-[01;32mMBHdesign_1.0.44.tar.gz[0m  [01;32mMBHdesign_1.0.76.tar.gz[0m  [01;32mtime1.png[0m
-[01;32mMBHdesign_1.0.45.tar.gz[0m  [01;32mMBHdesign_1.0.77.tar.gz[0m  [34;42mtmp[0m
-[01;32mMBHdesign_1.0.46.tar.gz[0m  [01;32mMBHdesign_1.0.78.tar.gz[0m  [34;42mvignettes[0m
-[01;32mMBHdesign_1.0.47.tar.gz[0m  [01;32mMBHdesign_1.0.79.tar.gz[0m
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ lsR CMD INSTALL -l ~/library/R/lib MBHdesign_2.2.6.ttar.gz[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.6.ta[1Pr.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1.6.tar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-
-Error: ERROR: cannot cd to directory ‘/home/fos085/library/R/lib’
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ R CMD INSTALL -l ~/library/R/lib MBHdesign_2.1.6.ttar.gz[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr MBHdesign_2.1.6.tar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ca MBHdesign_2.1.6.tar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr MBHdesign_2.1.6.tar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cy MBHdesign_2.1.6.tar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/R/library MBHdesign_2.1.[1P6.tar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/R/library MBHdesign_2.1.6[1P.tar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/R/library MBHdesign_2.1.6.[1Ptar.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/R/library MBHdesign_2.1.6.t[1Par.gz[A]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
-
-* installing *source* package ‘MBHdesign’ ...
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (MBHdesign)
-]0;/home/fos085/NESP/MonitoringTheme/SOPproject/MBHdesign]0;fos085@peach-hf: ~/NESP/MonitoringTheme/SOPproject/MBHdesign[01;32mfos085@peach-hf[00m:[01;34m~/NESP/MonitoringTheme/SOPproject/MBHdesign[00m$ q

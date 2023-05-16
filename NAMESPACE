@@ -1,13 +1,21 @@
 export( "alterInclProbs",
 "modEsti",
 "quasiSamp",
+"quasiSamp.raster",
 "transectSamp",
 "findDescendingTrans",
-"findTransFromPoint")
-import( mgcv)
-import( geometry)
-import( randtoolbox)
-import( mvtnorm)
-import( stats)
-import( class)
+"findTransFromPoint",
+"alterInclProbs.cluster",
+"quasiSamp.cluster")
+importFrom( "mgcv", "gam", "predict.gam", "in.out")
+importFrom( "geometry", "convhulln")
+importFrom( "randtoolbox", "halton")
+importFrom( "mvtnorm", "rmvnorm")
+importFrom( "stats", "pnorm", "uniroot", "update", "coef", "quantile", "rexp", "sd", "gaussian", "dist", "as.formula", "runif")
+importFrom( "class", "knn1")
+importFrom( "raster", "extent", "values", "coordinates", "xyFromCell", "projection")
+importFrom( "parallel", "makeCluster", "clusterExport", "stopCluster", "detectCores", "parLapply")
+importFrom( "sp", "SpatialPointsDataFrame", "CRS", "proj4string")
+importFrom( "graphics", "par", "mtext")
+importFrom( "grDevices", "grey")
 

@@ -1,4 +1,26 @@
-citHeader("To cite the MBHdesign package in publications please use one (or both) of:")
+citHeader("To cite the MBHdesign package in publications please use one (or more) of the following.  For citing the package please use the first paper.  For citing the methods that the package implements, please cite the appropriate paper(s) from the last three papers.")
+
+citEntry(
+	entry="Article",
+    title = "MBHdesign: An R-package for efficient spatial survey designs",
+	author = personList(as.person("S.D. Foster")),
+	year = 2021,
+	journal="Methods in Ecology and Evolution",
+	volume= "12",
+	pages="415-420",
+	textVersion = paste("Foster, S. D. MBHdesign: An R-package for efficient spatial survey designs Methods in Ecology and Evolution, 2021, 12, 415-420")
+)
+
+citEntry(
+	entry="Article",
+    title = "BAS: Balanced Acceptance Sampling of Natural Resources",
+	author = personList(as.person("Robertson, B.L."), as.person("Brown, J.A."), as.person("McDonald, T."), as.person("Jacksons, P.")),
+	year = 2013,
+	journal="Biometrics",
+	volume= "69",
+	pages="776-784",
+	textVersion = paste("Robertson, B. L.; Brown, J. A.; McDonald, T. & Jaksons, P. BAS: Balanced Acceptance Sampling of Natural Resources. Biometrics, 2013, 69, 776-784")
+)
 
 citEntry(
 	entry="Article",

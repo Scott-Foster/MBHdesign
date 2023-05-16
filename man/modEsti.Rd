@@ -38,6 +38,7 @@ The control list contains elements with names:
  Foster, S.D., Hosack, G.R., Lawrence, E., Przeslawski, R., Hedge,P., Caley, M.J., Barrett, N.S., Williams, A., Li, J., Lynch, T., Dambacher, J.M., Sweatman, H.P.A, and Hayes, K.R. (2017) Spatially-Balanced Designs that Incorporate Legacy Sites. Methods in Ecology and Evolution \emph{8}:1433--1442.
 }
 \examples{
+\donttest{
 #set up design parameters
 #taken from the example in alterInclProbs()
 #big plane today
@@ -70,5 +71,6 @@ esti <- modEsti( y=samp$outcomes, locations=samp[,1:2], includeLegacyLocation=TR
 print( esti)
 #tidy
 rm( esti, legacySites, n, N, nLegacy, p, p2, samp, X)
+}
 }
 \keyword{misc}
