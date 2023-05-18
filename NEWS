@@ -21,5 +21,3 @@ MBHdesign v2.1.9 (Release date: 2022-October)
 Changes:
 
 * Introduce code for cluster sampling.  In particular alterInclusionProbs.cluster and quasiSamp.cluster
-
-

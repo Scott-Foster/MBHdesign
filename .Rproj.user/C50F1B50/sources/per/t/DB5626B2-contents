@@ -1,0 +1,99 @@
+
+################################################
+####  Test estimation code using the simulated
+####  data created November 2020
+
+####  This script is based on OTintegrateModel2.R
+
+####  Scott March 2021
+################################################
+
+library(INLA)
+library( raster)
+# library(rgeos)  Exported functions
+
+################################################
+####  Define code for the  integrated model ####
+####  And set up the data                   ####
+################################################
+
+####  Function to fit the integrated model, and a few helpers too.
+source( "../integratedAnalysis4.R")
+####  Utilities to support isdm in "integratedANalsysi4.R"
+source( "../isdmUtils4.R")
+
+####  Load in simulated data
+load( "SimulatedData.RData")
+
+#convert data to spatial data
+tmp <- lapply( observationData, function(xx) SpatialPointsDataFrame( coords=xx[,c("x","y")], data=as.data.frame( xx)))
+observationData.FULL <- tmp
+names( observationData.FULL) <- c("PO","PA","AA")
+rm( tmp)
+
+#this command doesn't seem right, not to simply create a bloody Polygon list ... !
+#isdm will create a boundary, but it will be ever-so-slightly bigger than needed (convex-hull)
+simBorder <- SpatialPolygons( list( Polygons( list( Polygon( coords=matrix( c(0,0, 1,0, 1,1, 0,1, 0,0), ncol=2, byrow=TRUE))), ID="border")))
+
+observationData <- observationData.FULL
+observationData[["PO"]] <- observationData[["PO"]][1:100,]  #100 PO observations
+observationData[["PA"]] <- observationData[["PA"]][1:50,]  #50 PA observations
+observationData[["AA"]] <- observationData[["AA"]][1:50,]  #50 AA observations
+
+fm <- list()
+n.threads <- 6
+system.time( fm[["allData_correct"]] <- isdm( POdat=observationData$PO, PAdat=observationData$PA, AAdat=observationData$AA, predLocs=coordinates( dataBrick), 
+                         responseNames=c(PO="loc",PA="PA",AA="abund"), 
+                         distributionFormula= ~ 0 + Altitude + Temperature, 
+                         biasFormulas=list(PO=~0+dist2City, PA=~1, AA=~1), 
+                         covarBrick=dataBrick, 
+                         boundary=simBorder, 
+                         control=list(coord.names=c("x","y"), n.threads=n.threads)))
+
+system.time( fm[["allData_noBias"]] <- isdm( POdat=observationData$PO, PAdat=observationData$PA, AAdat=observationData$AA, predLocs=coordinates( dataBrick), 
+                         responseNames=c(PO="loc",PA="PA",AA="abund"), 
+                         distributionFormula= ~ 0 + Altitude + Temperature, 
+                         biasFormulas=list(PO=~1, PA=~1, AA=~1),  #only change from previous is here.
+                         covarBrick=dataBrick, 
+                         boundary=simBorder, 
+                         control=list(coord.names=c("x","y"), n.threads=n.threads)))
+
+system.time( fm[["noPO_correct"]] <- isdm( POdat=NULL, PAdat=observationData$PA, AAdat=observationData$AA, predLocs=coordinates( dataBrick), 
+                          responseNames=c(PO=NULL,PA="PA",AA="abund"), 
+                          distributionFormula= ~ 0 + Altitude + Temperature, 
+                          biasFormulas=list(PO=NULL, PA=~1, AA=~1),  #only change from previous is here.
+                          covarBrick=dataBrick, 
+                          boundary=simBorder, 
+                          control=list(coord.names=c("x","y"), n.threads=n.threads)))
+
+system.time( fm[["POonly"]] <- isdm( POdat=observationData$PO, PAdat=NULL, AAdat=NULL, predLocs=coordinates( dataBrick), 
+                          responseNames=c(PO="loc",PA=NULL, AA=NULL), 
+                          distributionFormula= ~ 0 + Altitude + Temperature, 
+                          biasFormulas=list(PO=~1, PA=NULL, AA=NULL), 
+                          covarBrick=dataBrick, 
+                          boundary=simBorder, 
+                          control=list(coord.names=c("x","y"), n.threads=n.threads)))
+
+
+bitmap( file="exampleBiasRemoval1.png", type='png16m', height=13, width=12)
+  par( mfrow=c(3,3))
+  
+  plot( simBorder, main="PO locations")
+  points( observationData$PO[,c("x","y")], pch=20)
+  plot( simBorder, main="PA locations")
+  points( observationData$PA[,c("x","y")], pch=21, col=observationData$PA$PA+1)
+  plot( simBorder, main="AA locations")
+  points( observationData$AA[,c("x","y")], pch=22, col=observationData$AA$abund+1)
+
+  plot( dataBrick[["Intensity"]], main="Actual Intensity Surface")
+  plot( fm[["allData_correct"]]$preds[["mean"]], main="Estimated (de-biassed) Surface")
+  plot( fm[["allData_noBias"]]$preds[['mean']], main="Estiamted (naive) Surface")
+  
+  plot.new()
+  plot( fm[["noPO_correct"]]$preds[["mean"]], main="Estimated (no PO data, no bias) Surface")
+  plot( fm[["POonly"]]$preds[['mean']], main="Estiamted (PO data only) Surface", zlim=c(0,500), sub="truncated at 500")
+
+dev.off()
+
+
+

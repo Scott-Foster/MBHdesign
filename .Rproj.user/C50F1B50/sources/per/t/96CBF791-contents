@@ -3,12 +3,10 @@
 
 @Article{fos17a,
   Title                    = {Spatially balanced designs that incorporate legacy sites},
-  Author                   = {Foster, Scott D. and Hosack, Geoffrey R. and Lawrence, Emma and Przeslawski, Rachel and Hedge, Paul and Caley, M. Julian and Barrett, Neville S. and Williams, Alan and Li, Jin and Lynch, Tim and Dambacher, Jeffrey M. and Sweatman, Hugh P.A. and Hayes, Keith R.},
+  Author                   = {Foster, S.D. and Hosack, G.R. and Lawrence, E. and Przeslawski, R. and Hedge, P. and Caley, M.J. and Barrett, N.S. and Williams, A. and Li, J. and Lynch, T. and Dambacher, J.M. and Sweatman, H.P.A. and Hayes, K.R.},
   Journal                  = {Methods in Ecology and Evolution},
   Year                     = {2017},
-  Number                   = {11},
-  Pages                    = {1433--1442},
-  Volume                   = {8},
+  Pages                    = {n/a--n/a},
 
   Abstract                 = {
 
@@ -31,32 +29,18 @@
   ISSN                     = {2041-210X},
   Keywords                 = {balanced acceptance sampling, environmental sampling, quasi-random, spatial balance, survey design, unequal probability sample},
   Owner                    = {fos085},
-  Timestamp                = {2017.11.09},
+  Timestamp                = {2017.07.12},
   Url                      = {http://dx.doi.org/10.1111/2041-210X.12782}
 }
 
-@Article{fos20,
-  author   = {Foster, Scott D. and Hosack, Geoffrey R. and Monk, Jacquomo and Lawrence, Emma and Barrett, Neville S. and Williams, Alan and Przeslawski, Rachel},
-  title    = {Spatially balanced designs for transect-based surveys},
-  journal  = {Methods in Ecology and Evolution},
-  year     = {2020},
-  volume   = {11},
-  number   = {1},
-  pages    = {95--105},
-  doi      = {10.1111/2041-210X.13321},
-  eprint   = {https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/2041-210X.13321},
-  url      = {https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13321},
-  abstract = {Abstract Many sampling techniques rely on taking measurements along a transect; an example is underwater imagery from towed platforms used for marine ecological studies. Despite transect-based sampling being commonly used, methods to generate randomized survey designs have not hitherto been developed. We develop methods to generate random transect designs, which respect the user-defined probability of sampling each grid cell (the cell inclusion probabilities). We show how to: (a) define transect inclusion probabilities from user-specified cell inclusion probabilities, which allows particular environments to be sampled more often; (b) alter the cell and transect inclusion probabilities so that when transects are sampled the frequencies of sampling cells approximate the cell inclusion probabilities, and; (c) draw a spatially balanced probability sample of transects. The spatially balanced transect designs approximately maintain the cell inclusion probabilities. The greatest of the small departures occur near the extreme corners of our convex study region, which are difficult to place transects into. The proposed designs also exhibit superior spatial balance compared to the non-balanced counterparts. We illustrate the successful application of the method to a towed-camera survey of deep-sea (500–2,000 m depths) seamounts off Tasmania, Australia. This was a challenging application due to the complex topology of the setting, and uneven inclusion probabilities for the property of interest -- the presence of a stony coral. Our approach develops the randomization approach to transect-based surveys, thereby ensuring that transect-based surveys can enjoy the same benefits as random point-based surveys. The method approximates the cell inclusion probabilities, and does so while spatially balancing the transects throughout the study area. Practitioners can access the methods through the R-package MBHdesign, which is available from CRAN. We anticipate that it will act as a cornerstone for transect-based ecological monitoring programmes.},
-  file     = {:/home/fos085/ScottsPublications/FosterHosackMonkLawrenceBarrettWilliamsPrzeslawski19.pdf:PDF},
-  keywords = {balanced acceptance sample, MBHdesign, quadrat, quasi-random, spatial balance, survey design, transect, unequal probability sample},
-}
+@Article{fos19,
+  Title                    = {Spatially-Balanced Designs for Transect-Based Surveys},
+  Author                   = {Foster, S.D. and Hosack, G. and Monk, J. and Lawrence, E. and Barrett, N. and Williams, A. and Przeslawski, R.},
+  Year                     = {{in prep}},
 
-@Article{fos23,
-  author   = {Foster, Scott D. and Lawrence, E. and Hoskins, A.},
-  title    = {Spatially balanced Clustered Designs},
-  year     = {{in review}},
+  Owner                    = {fos085},
+  Timestamp                = {2018.12.08}
 }
-
 
 @Article{gra13,
   Title                    = {Doubly balanced spatial sampling with spreading and restitution of auxiliary totals},
@@ -123,24 +107,6 @@
   Url                      = {http://dx.doi.org/10.1111/biom.12059}
 }
 
-@Article{rob17b,
-  Title                    = {A modification of balanced acceptance sampling},
-  Author                   = {B.L. Robertson and T. McDonald and C.J. Price and J.A. Brown},
-  Journal                  = {Statistics \& Probability Letters},
-  Year                     = {2017},
-  Pages                    = {107 - 112},
-  Volume                   = {129},
-
-  Abstract                 = {This article presents a modification of balanced acceptance sampling (BAS) that causes inclusion probabilities to better approximate targeted inclusion probabilities. A new sample frame constructor for BAS is also introduced from which equi-probable spatially balanced samples are drawn.},
-  Doi                      = {https://doi.org/10.1016/j.spl.2017.05.004},
-  File                     = {:Robertson17.pdf:PDF},
-  ISSN                     = {0167-7152},
-  Keywords                 = {Environmental sampling, Halton sequence, Spatial balance},
-  Owner                    = {fos085},
-  Timestamp                = {2018.04.04},
-  Url                      = {http://www.sciencedirect.com/science/article/pii/S0167715217301797}
-}
-
 @Article{ste03,
   Title                    = {Variance estimation for spatially balanced samples of environmental resources},
   Author                   = {Stevens, D.L. and Olsen, A.R.},
@@ -191,48 +157,5 @@
   note      = {R package version 5.0.1},
   timestamp = {2021-10-25},
 }
-
-@Article{lar08,
-  Title                    = {Using a Master Sample to Integrate Stream Monitoring Programs},
-  Author                   = {Larsen, D.P. and Olsen, A.R. and Stevens, D.L.},
-  Journal                  = {Journal of Agricultural, Biological, and Environmental Statistics},
-  Year                     = {2008},
-  Number                   = {3},
-  Pages                    = {243-254},
-  Volume                   = {13},
-
-  Doi                      = {10.1198/108571108X336593},
-  File                     = {:Larsen08.pdf:PDF},
-  ISSN                     = {1085-7117},
-  Keywords                 = {Stream surveys; Survey designs},
-  Language                 = {English},
-  Owner                    = {fos085},
-  Publisher                = {Springer-Verlag},
-  Timestamp                = {2015.09.15},
-  Url                      = {http://dx.doi.org/10.1198/108571108X336593}
-}
-
-@Article{van18,
-  Title                    = {Using balanced acceptance sampling as a master sample for environmental surveys},
-  Author                   = {van Dam-Bates, Paul and Gansell, Oliver and Robertson, Blair},
-  Journal                  = {Methods in Ecology and Evolution},
-  Year                     = {2018},
-
-  Month                    = {7},
-  Number                   = {7},
-  Pages                    = {1718--1726},
-  Volume                   = {9},
-
-  Abstract                 = {Well‐designed environmental monitoring programmes for management organisations are important for evidence‐based decision making. However, many environmental problems are not single agency issues that require intervention or monitoring at one spatial scale. A master sample can be used to coordinate and scale monitoring designs to ensure consistency in information gathered and robustness of estimators at the different spatial scales. We propose using balanced acceptance sampling (BAS) to generate a master sample. In this context, practical applications and justification of BAS as a master sample are addressed. These include sample generation, stratification, unequal probability sampling, rotating panel designs, and regional intensification. A method for incorporating legacy sites is also provided. Using BAS as a master sample is conceptually simple, gives good spatial balance over different spatial scales, and is computationally efficient to generate. An example for terrestrial biodiversity monitoring in New Zealand is provided. Environmental monitoring can benefit from increased coordination between agencies. A master sample is an excellent way to incorporate coordination directly into the sample design. BAS improves on methods previously described and provides an effective method to monitor populations at multiple spatial scales.},
-  Doi                      = {10.1111/2041-210X.13003},
-  File                     = {:vanDam-Bates18.pdf:PDF},
-  ISSN                     = {2041-210X},
-  Owner                    = {fos085},
-  Publisher                = {Wiley Online Library},
-  Timestamp                = {2018.07.10},
-  Url                      = {http:https://doi.org/10.1111/2041-210X.13003}
-}
-
-
 
 @Comment{jabref-meta: databaseType:bibtex;}

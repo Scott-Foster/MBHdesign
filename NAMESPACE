@@ -18,4 +18,3 @@ importFrom( "parallel", "makeCluster", "clusterExport", "stopCluster", "detectCo
 importFrom( "sp", "SpatialPointsDataFrame", "CRS", "proj4string")
 importFrom( "graphics", "par", "mtext")
 importFrom( "grDevices", "grey")
-
