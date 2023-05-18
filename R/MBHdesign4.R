@@ -290,6 +290,8 @@
     message( "No inclusion.probs supplied, assuming uniform")
     inclusion.probs <- rep( 1/N, N) #even probs
   }
+  #standardise properly
+  inclusion.probs <- n * inclusion.probs / sum( inclusion.probs)
   #standardise inclusion probabilities (for efficient sampling)
   inclusion.probs1 <- inclusion.probs / max( inclusion.probs, na.rm=TRUE)
   
@@ -364,6 +366,9 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   if (!inherits(inclusion.probs, "RasterLayer")) 
     stop("RasterLayer must be passed as input to inclusion.probs.  Please revise, or use quasiSamp (not quasiSamp.raster)")
   raster::values(inclusion.probs) <- raster::values(inclusion.probs)/max(raster::values(inclusion.probs), na.rm = TRUE)
+  #saving and scaling the defined IPs
+  IP.orig <- inclusion.probs
+  raster::values(IP.orig) <- raster::values(IP.orig)/sum(raster::values(IP.orig), na.rm = TRUE)
   tmp1 <- extent(inclusion.probs)
   tmp <- matrix(c(tmp1@xmin, tmp1@xmax, tmp1@ymin, tmp1@ymax), ncol = 2, byrow = TRUE)
   designParams.short <- list(dimension = 2, study.area = matrix(c(tmp[1,1], tmp[2, 1], tmp[1, 2], tmp[2, 1], tmp[1, 2], tmp[2,2], tmp[1, 1], tmp[2, 2]), ncol = 2, byrow = TRUE))
@@ -387,7 +392,8 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   }
   else 
     stop("Failed to find a design. Too few samples considered for BAS. It is possible that the inclusion probabilities are very low and uneven OR that the sampling area is very irregular (e.g. long and skinny) OR something else. Please try again (less likely to work) OR make inclusion probabilities more even (more likely but possibly undesireable) OR increase the number of sites considered (likely but computationally expensive).")
-  samp <- as.data.frame(cbind(raster::coordinates(inclusion.probs)[sampIDs,], lotsOvals, sampIDs))
+  #samp <- as.data.frame(cbind(raster::coordinates(inclusion.probs)[sampIDs,], lotsOvals, sampIDs))
+  samp <- as.data.frame(cbind(raster::coordinates(inclusion.probs)[sampIDs,], raster::extract( IP.orig, raster::coordinates( inclusion.probs)[sampIDs,]), sampIDs))
   colnames(samp) <- c(colnames(samp)[1:2], "inclusion.probabilities", "ID")
   return(samp)
 }

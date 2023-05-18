@@ -3,14 +3,15 @@
 \title{Alters inclusion probabilities to accommodate a 2-stage cluster sampling process}
 \description{ Alters inclusion probabilities so that the cluster sampling approach respects specified inclusion probabilities.}
 \usage{
- alterInclProbs.cluster( clusterSize, clusterRadius, inclusion.probs, 
+ alterInclProbs.cluster( nCluster, clusterSize, clusterRadius, inclusion.probs, 
                                     maxIter=50, tolerance=NULL, 
                                     mc.cores=parallel::detectCores()-1, doPlot=FALSE)
 }
 \arguments{
+\item{ nCluster}{an integer specifying the number of clusters.}
 \item{ clusterSize}{an integer specifying the number of sites within a cluster.}
 \item{ clusterRadius}{a numeric scalar giving the geographical extent of each cluster (from cluster centre to most extreme). Must be specified in metres (see \code{\link[raster]{extract}} and \code{\link[raster]{buffer}}).}
-\item{ inclusion.probs}{a RasterLayer specifying the inclusion probability for each of the potential sampling sites. The values contained are the probability that each site will be included in the final sample. Must be specified.}
+\item{ inclusion.probs}{a RasterLayer specifying the inclusion probability for each of the potential sampling sites. The values contained are the probability that each site will be included in the final sample. The values of this rasterLayer will be scaled so that they sum to ncluster*clusterSize. This is due to the alteration not depending on the number of clusters (otherwise they would be scaled to clusterSize * nCLuster. Must be specified.}
 \item{maxIter}{an integer giving the maximum number of iterations that the algorithm is allowed to perform before termination.}
 \item{tolerance}{a scalar numeric specifying the desired tolerance between observed inclusion probabilities (from 2-stage cluster sampling process) and the specified inclusion probabilities (from user). This tolerance specifies the accuracy with which the working inclusion probabilities are calculated.}
 \item{ mc.cores}{an integer defining the number of processes to for some of the calculations on (in particular the calculation of distances to legacy sites). See parLapply(qv) in package parallel. Defaut is quite greedy, all but one of the cores available.}
@@ -24,6 +25,6 @@
 }
 \author{ Scott D. Foster}
 \references{
- Foster, S.D., Lawrence, E., Others, TBA, and Hoskins, A. (in prep). Spatially-Balanced Cluster Sampling.
+ Foster, S.D., Lawrence, E., and Hoskins, A. (in prep). Spatially-Balanced Cluster Sampling.
 }
 \keyword{misc}

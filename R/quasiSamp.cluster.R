@@ -15,7 +15,7 @@
     
   if( is.null( working.inclusion.probs)){
     message( "No working.inclusion.probs specified. Calculating now (with default computational options.")
-    working.inclusion.probs <- alterInclProbs.cluster( clusterSize=clusterSize, clusterRadius=clusterRadius, inclusion.probs=inclusion.probs, maxIter=500, tolerance=NULL, mc.cores=2, doPlot=FALSE)
+    working.inclusion.probs <- alterInclProbs.cluster( nCluster=nCluster, clusterSize=clusterSize, clusterRadius=clusterRadius, inclusion.probs=inclusion.probs, maxIter=500, tolerance=NULL, mc.cores=2, doPlot=FALSE)
   }
 
   #sample the cluster centres

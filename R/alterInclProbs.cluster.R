@@ -74,9 +74,12 @@
   return( list( ras=crit.ras, max=crit[1], median=crit[2]))
 }
 
-"alterInclProbs.cluster" <- function( clusterSize, clusterRadius, inclusion.probs, 
+"alterInclProbs.cluster" <- function( nCluster, clusterSize, clusterRadius, inclusion.probs, 
                                     maxIter=50, tolerance=NULL, mc.cores=parallel::detectCores()-1, doPlot=FALSE){
   #no precalculation (too memory hungry) but parallelisation (per row)
+  
+  #rescale to clusterSize
+  raster::values( inclusion.probs) <- nCluster * clusterSize * raster::values( inclusion.probs) / sum( raster::values( inclusion.probs), na.rm=TRUE)
   
   if( is.null( tolerance)){
     tmp <- stats::median( raster::values( inclusion.probs)[raster::values( inclusion.probs)>0], na.rm=TRUE)
@@ -103,16 +106,13 @@
   
   #setup cluster and count cells in neighbourhoods
   cl <- parallel::makeCluster(mc.cores)
-#  parallel::clusterExport(cl, c( "inclusion.probs", "myCellIDs", "wtMat", "clusterSize"))
   parallel::clusterExport( cl, c( "countFromRow", "getQrow", "getQcell"), envir = .getNamespace( "MBHdesign"))
   parallel::clusterExport( cl, c( "getValuesFocal"), envir=.getNamespace("raster"))
   countty <- as.numeric( parallel::parSapply( cl, 1:raster::nrow( inclusion.probs), countFromRow, wtMat=wtMat, inclusion.probs=inclusion.probs))
   countty[myMaskID] <- NA
-#  parallel::clusterExport( cl, c("countty"), envir=environment())
   
   #Initialise the working values from linear approx
   IP.w <- inclusion.probs / ( clusterSize * countty)#sum( wtMat==1))
-#  raster::values( IP.w) <- min( raster::values( inclusion.probs)[raster::values( inclusion.probs) >0], na.rm=TRUE) / (countty*clusterSize)  #a flattened raster
   raster::values( IP.w)[is.na( raster::values( IP.w))] <- 0
   raster::values( IP.w)[raster::values( inclusion.probs)==0] <- 0
   raster::values( IP.w)[myMaskID] <- NA
@@ -164,23 +164,6 @@
     Q.dash <- 2 * ( QandDeriv[,1] - raster::values( inclusion.probs)) * QandDeriv[,2]
     adj <- (Q/Q.dash)*alpha
   
-    #see if previous step was dodgy
-#    setBetter <- which( raster::values( crit.old$ras) >= raster::values( crit$ras))
-    
-#    if( 1.00*crit.old$max < crit$max){# | ((crit[1] >= 1) & (crit.old[1] < crit[1]))) {  #allow for very small increases but not larger ones
-#      warning( "Proposed step increases tolerance. Moving from previous location by a small multiple (random) amount.")
-#      adj <- rep( NA, length=raster::ncell( IP.w))
-#      maxRan <- 1e-3*max( raster::values( IP.w.old), na.rm=TRUE)
-#      adj <- stats::runif(n=raster::ncell( inclusion.probs), min=-maxRan, max=maxRan)
-#      adj <- raster::values( IP.w.old) * adj  #will maintain zero as zero.
-#    }
-#    else{
-#      Q <- ( QandDeriv[,1] - raster::values( inclusion.probs))^2
-#      Q.dash <- 2 * ( QandDeriv[,1] - raster::values( inclusion.probs)) * QandDeriv[,2]
-#      
-#      adj <- (Q/Q.dash)*alpha
-#    }  
-
     #catching those updates that are obviously stupid.
     tmpzero <- which( raster::values( IP.w.old) < adj)
     if( length( tmpzero) > 0){
