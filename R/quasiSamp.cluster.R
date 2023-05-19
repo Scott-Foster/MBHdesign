@@ -24,7 +24,7 @@
   #the data for each cluster "swatch"
   clusterIPs <- raster::extract( working.inclusion.probs, clusterDes[,c("x","y")], buffer=clusterRadius, method='simple', cellnumbers=TRUE)
   #cell IDs and conditional probs
-  tmp <- lapply( 1:nCluster, function(xx) cbind( cell=clusterIPs[[xx]][,"cell"], IP.s=clusterIPs[[xx]][,"IP.s"], IP.bar=clusterIPs[[xx]][,"IP.bar"], condIP=clusterIPs[[xx]][,"IP.w"] / sum( clusterIPs[[xx]][,"IP.w"], na.rm=TRUE)))
+  tmp <- lapply( 1:nCluster, function(xx) cbind( cell=clusterIPs[[xx]][,"cell"], IP.s=clusterIPs[[xx]][,"IP.s"], IP.bar=clusterIPs[[xx]][,"IP.bar"], condIP=clusterIPs[[xx]][,"IP.w"] / sum( clusterIPs[[xx]][,"IP.w"], na.rm=TRUE), IP.w=clusterIPs[[xx]][,"IP.w"]))
   #coordinates and conditional probs
   tmp1 <- lapply( 1:nCluster, function(xx) cbind( raster::xyFromCell( working.inclusion.probs$IP.w, tmp[[xx]][,1]), tmp[[xx]][,c("cell","IP.s","IP.bar","condIP","IP.w")]))
   #turned into a list of rasters
