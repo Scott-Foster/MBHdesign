@@ -299,14 +299,14 @@
   return( ret)
 }
 
-"quasiSamp_fromhyperRect" <- function( nSampsToConsider, randStartType=2, designParams) {
+"quasiSamp_fromhyperRect" <- function( nSampsToConsider, randStartType=3, designParams) {
   #Generate quasi random numbers within survey area
   
   #initialise the sequence and subsample from it
   samp <- randtoolbox::halton( nSampsToConsider*2, dim=designParams$dimension+1, init=TRUE) #The big sequence of quasi random numbers
   if( randStartType==1)
     skips <- rep( sample( 1:nSampsToConsider, size=1, replace=TRUE), designParams$dimension+1)
-  if( randStartType==2)
+  if( randStartType %in% 2:3)
     skips <- sample( 1:nSampsToConsider, size=designParams$dimension+1, replace=TRUE) #the start points
   samp <- do.call( "cbind", lapply( 1:(designParams$dimension+1), function(x) samp[skips[x]+0:(nSampsToConsider-1),x]))  #a tedious way to paste it all together?  
   
@@ -322,7 +322,7 @@
   return( samp)
 }
 
-quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NULL, inclusion.probs = NULL, randStartType = 2, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
+quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NULL, inclusion.probs = NULL, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
 {
   if (inherits(inclusion.probs, "RasterLayer")) {
     samp <- quasiSamp.raster(n = n, inclusion.probs = inclusion.probs, randStartType = randStartType, nSampsToConsider = nSampsToConsider)
@@ -334,7 +334,7 @@ quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NU
 
   kount <- 1
   repeat{
-    samp <- MBHdesign:::quasiSamp_fromhyperRect(nSampsToConsider, randStartType = 2, designParams)
+    samp <- MBHdesign:::quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams) #randStartType was hardwired to be 2 (19 May 2023)
     sampIDs <- class::knn1(designParams$potential.sites, samp[, 1:designParams$dimension, drop = FALSE], 1:nrow(designParams$potential.sites))
     closePotential <- designParams$potential.sites[sampIDs, ]
     dist.1d <- abs(closePotential - samp[, 1:designParams$dimension, drop = FALSE])
@@ -375,7 +375,7 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   
   kount <- 1
   repeat{
-    samp <- MBHdesign:::quasiSamp_fromhyperRect(nSampsToConsider, randStartType = 2, designParams = designParams.short)
+    samp <- MBHdesign:::quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams = designParams.short)
     sampIDs <- raster::extract(inclusion.probs, samp[, 1:2], cellnumbers = TRUE)
     lotsOvals <- sampIDs[, 2]
     sampIDs <- sampIDs[, 1]

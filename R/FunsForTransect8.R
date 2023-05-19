@@ -481,7 +481,7 @@
   site.probs <- rowSums( locProbs)
   if( control$spat.random.type=="quasi"){
     tmp <- quasiSamp( n=n, dimension=2, study.area=designParams$study.area, potential.sites=designParams$potential.sites, 
-                      inclusion.probs=site.probs, randStartType=2, nSampsToConsider=control$nSampsToConsider)
+                      inclusion.probs=site.probs, randStartType=3, nSampsToConsider=control$nSampsToConsider)
     tmp <- tmp[,ncol( tmp)]
   }
   if( control$spat.random.type=="pseudo"){
