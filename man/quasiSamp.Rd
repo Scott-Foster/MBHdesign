@@ -37,7 +37,7 @@ In the edge case, where the number of samples is larger than the number of poten
 
 \value{The quasiSamp and quasiSamp.raster functions returns a matrix of (dimension+2) columns. The first columns (of number dimension) are the sampled sites locations. The second to last column contains the inclusion probabilities for the sampled locations. The last column is the row number (of potential.sites) that corresponds to that sampled site.
 
-The quasiSamp.cluster function returns a SpatialPointsDataFrame. It contains an identifier for cluster and site within cluster, the cellID from the original (inclusion.probs or working.inclusion.probs) raster, the specified inclusion probability for the cell, the cluster probability for a cluster centred at that cell, and the conditional probability of sampling each cell within that cluster. The return object also contains a SpatialPointsDataFrame containing the design for the cluster.
+The quasiSamp.cluster function returns a SpatialPointsDataFrame. It contains an identifier for cluster and site within cluster, the cellID from the original (inclusion.probs or working.inclusion.probs) raster, the specified inclusion probability for the cell, the cluster probability for a cluster centred at that cell, the conditional probability of sampling each cell within that cluster, and the working inclusion probabilities. The return object also contains a SpatialPointsDataFrame containing the design for the cluster.
 }
 \seealso{\code{\link{alterInclProbs}}, \code{\link{modEsti}}, \code{\link{alterInclProbs.cluster}}}
 

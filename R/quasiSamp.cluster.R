@@ -26,9 +26,9 @@
   #cell IDs and conditional probs
   tmp <- lapply( 1:nCluster, function(xx) cbind( cell=clusterIPs[[xx]][,"cell"], IP.s=clusterIPs[[xx]][,"IP.s"], IP.bar=clusterIPs[[xx]][,"IP.bar"], condIP=clusterIPs[[xx]][,"IP.w"] / sum( clusterIPs[[xx]][,"IP.w"], na.rm=TRUE)))
   #coordinates and conditional probs
-  tmp1 <- lapply( 1:nCluster, function(xx) cbind( raster::xyFromCell( working.inclusion.probs$IP.w, tmp[[xx]][,1]), tmp[[xx]][,c("cell","IP.s","IP.bar","condIP")]))
+  tmp1 <- lapply( 1:nCluster, function(xx) cbind( raster::xyFromCell( working.inclusion.probs$IP.w, tmp[[xx]][,1]), tmp[[xx]][,c("cell","IP.s","IP.bar","condIP","IP.w")]))
   #turned into a list of rasters
-  tmp1Ras <- lapply( tmp1, function(xx) raster::rasterFromXYZ( cbind( xx[,c('x','y','cell','IP.s','IP.bar','condIP')])))
+  tmp1Ras <- lapply( tmp1, function(xx) raster::rasterFromXYZ( cbind( xx[,c('x','y','cell','IP.s','IP.bar','condIP','IP.w')])))
   #spatial sample in each cluster
   tmp2 <- lapply( 1:nCluster, function(xx) quasiSamp.raster(n=clusterSize, inclusion.probs = tmp1Ras[[xx]]$condIP, randStartType=randStartType, nSampsToConsider=nSampsToConsider[2], nStartsToConsider=nStartsToConsider[2]))
   #re-append cell information
@@ -37,8 +37,8 @@
   tmp2a <- lapply( 1:nCluster, function(xx) cbind( tmp2a[[xx]], 1:clusterSize, xx))
   #flattening
   tmp3 <- do.call( "rbind", tmp2a)
-  colnames( tmp3) <- c("x","y", "cellID", "IP.s", "IP.bar", "IP.cond", "point", "cluster")
-  tmp3 <- as.data.frame( tmp3[,c("x","y","cluster","point","cellID","IP.s","IP.bar","IP.cond")])
+  colnames( tmp3) <- c("x","y", "cellID", "IP.s", "IP.bar", "IP.cond", "IP.w", "point", "cluster")
+  tmp3 <- as.data.frame( tmp3[,c("x","y","cluster","point","cellID","IP.s","IP.bar","IP.cond","IP.w")])
   tmp4 <- sp::SpatialPointsDataFrame( coords = as.matrix( tmp3[,c("x","y")]), data=tmp3[,-(1:2)], proj4string=sp::CRS( proj4string(working.inclusion.probs)))
   
   tmpClust <- sp::SpatialPointsDataFrame( coords=as.matrix( clusterDes[,1:2]), data=clusterDes[,-(1:2)], proj4string=sp::CRS( proj4string( working.inclusion.probs)))
