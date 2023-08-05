@@ -380,7 +380,7 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
     lotsOvals <- sampIDs[, 2]
     sampIDs <- sampIDs[, 1]
     sampIDs.2 <- which(samp[, 3] < lotsOvals)
-    if( randStartType!=3 | sampIDs.2[1]==1)
+    if( (length( sampIDs.2) > 0) & (randStartType!=3 | sampIDs.2[1]==1))
       break
     kount <- kount + 1
     if( kount > nStartsToConsider)
