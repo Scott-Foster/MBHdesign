@@ -345,7 +345,7 @@ quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NU
     samp <- samp[inArea, ]
     sampIDs <- sampIDs[inArea]
     sampIDs.2 <- which(samp[, designParams$dimension + 1] < designParams$inclusion.probs1[sampIDs])
-    if( randStartType!=3 | sampIDs.2[1]==1)
+    if( (length( sampIDs.2) > 0) & (randStartType!=3 | sampIDs.2[1]==1))
       break
     kount <- kount + 1
     if( kount > nStartsToConsider)
