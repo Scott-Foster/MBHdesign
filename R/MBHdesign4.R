@@ -324,7 +324,7 @@
 
 quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NULL, inclusion.probs = NULL, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
 {
-  if (inherits(inclusion.probs, "RasterLayer")) {
+  if (inherits(inclusion.probs, c( "RasterLayer", "SpatRast"))) {
     samp <- quasiSamp.raster(n = n, inclusion.probs = inclusion.probs, randStartType = randStartType, nSampsToConsider = nSampsToConsider)
     return(samp)
   }
@@ -364,7 +364,9 @@ quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NU
 quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
 {
   if (!inherits(inclusion.probs, "RasterLayer")) 
-    stop("RasterLayer must be passed as input to inclusion.probs.  Please revise, or use quasiSamp (not quasiSamp.raster)")
+    inclusion.probs <- try( raster::raster( inclusion.probs), silent=TRUE)
+  if (!inherits(inclusion.probs, "RasterLayer")) 
+    stop("RasterLayer must be passed as input (argument inclusion.probs). It must be a RasterLayer, or something that can be coerced to a RasterLayer using raster::raster. Please revise, or use quasiSamp (not quasiSamp.raster)")
   raster::values(inclusion.probs) <- raster::values(inclusion.probs)/max(raster::values(inclusion.probs), na.rm = TRUE)
   #saving and scaling the defined IPs
   IP.orig <- inclusion.probs
