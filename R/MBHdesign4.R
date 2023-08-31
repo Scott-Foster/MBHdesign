@@ -31,11 +31,15 @@
         disty <- sqrt(disty)
         return(disty)
     }
-    cl <- parallel::makeCluster(mc.cores)
-    parallel::clusterExport(cl, c("potential.sites", "legacy.sites", 
-        "distFun4"), envir = environment())
-    tmp <- parallel::parLapply(cl, 1:nrow(legacy.sites), distFun4)
-    parallel::stopCluster(cl)
+    if( mc.cores >1){
+      cl <- parallel::makeCluster(mc.cores)
+      parallel::clusterExport(cl, c("potential.sites", "legacy.sites", 
+	  "distFun4"), envir = environment())
+      tmp <- parallel::parLapply(cl, 1:nrow(legacy.sites), distFun4)
+      parallel::stopCluster(cl)
+    }
+    else
+      tmp <- lapply( 1:nrow( legacy.sites), distFun4)
     tmp <- do.call("cbind", tmp)
     if( !is.null( n))
       inclusion.probs <- n * inclusion.probs / sum( inclusion.probs, na.rm=TRUE)
@@ -216,10 +220,14 @@
       disty <- sqrt( disty)
       return( disty)
     }
-    cl <- parallel::makeCluster( control$mc.cores)
-    parallel::clusterExport( cl, c("predPts", "locations", "legacyIDs", "distFun4"), envir=environment())
-    tmp <- parallel::parLapply( cl, 1:length( legacyIDs), distFun4)
-    parallel::stopCluster( cl)
+    if( control$mc.cores > 1){
+      cl <- parallel::makeCluster( control$mc.cores)
+      parallel::clusterExport( cl, c("predPts", "locations", "legacyIDs", "distFun4"), envir=environment())
+      tmp <- parallel::parLapply( cl, 1:length( legacyIDs), distFun4)
+      parallel::stopCluster( cl)
+    }
+    else
+      tmp <- lapply( 1:length( legacyIDs), distFun4)
     tmp1 <- do.call( "cbind", tmp)
     tmp1 <- exp( -(tmp1^2)/(sigma^2))
     combinedDistToLegacy <- rowSums( tmp1)
@@ -239,7 +247,7 @@
   return( ret)
 }
 
-"setDesignParams" <- function( dimension, study.area, potential.sites, inclusion.probs) {
+"setDesignParams" <- function( dimension, study.area, potential.sites, inclusion.probs, n) {
   if( is.null( study.area)){
     if( is.null( potential.sites)){
       message( "No study.area defined and no potential.sites given. Using unit interval/square/cube/hyper-cube (as dimension dictates)")
@@ -291,7 +299,7 @@
     inclusion.probs <- rep( 1/N, N) #even probs
   }
   #standardise properly
-  inclusion.probs <- n * inclusion.probs / sum( inclusion.probs)
+  inclusion.probs <- n * inclusion.probs / sum( inclusion.probs, na.rm=TRUE)
   #standardise inclusion probabilities (for efficient sampling)
   inclusion.probs1 <- inclusion.probs / max( inclusion.probs, na.rm=TRUE)
   
@@ -328,13 +336,13 @@ quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NU
     samp <- quasiSamp.raster(n = n, inclusion.probs = inclusion.probs, randStartType = randStartType, nSampsToConsider = nSampsToConsider)
     return(samp)
   }
-  designParams <- MBHdesign:::setDesignParams(dimension, study.area, potential.sites, inclusion.probs)
+  designParams <- setDesignParams(dimension, study.area, potential.sites, inclusion.probs, n=n)
   c2cAll <- lapply(as.data.frame(designParams$potential.sites), function(xx) sort(unique(xx)))
   c2c <- sapply(c2cAll, function(xx) min(diff(xx)))
 
   kount <- 1
   repeat{
-    samp <- MBHdesign:::quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams) #randStartType was hardwired to be 2 (19 May 2023)
+    samp <- quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams) #randStartType was hardwired to be 2 (19 May 2023)
     sampIDs <- class::knn1(designParams$potential.sites, samp[, 1:designParams$dimension, drop = FALSE], 1:nrow(designParams$potential.sites))
     closePotential <- designParams$potential.sites[sampIDs, ]
     dist.1d <- abs(closePotential - samp[, 1:designParams$dimension, drop = FALSE])
@@ -377,7 +385,7 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   
   kount <- 1
   repeat{
-    samp <- MBHdesign:::quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams = designParams.short)
+    samp <- quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams = designParams.short)
     sampIDs <- raster::extract(inclusion.probs, samp[, 1:2], cellnumbers = TRUE)
     lotsOvals <- sampIDs[, 2]
     sampIDs <- sampIDs[, 1]

@@ -1,6 +1,7 @@
 "quasiSamp.cluster"  <- function( nCluster, clusterSize, clusterRadius, 
                                 inclusion.probs=NULL, working.inclusion.probs=NULL,
-                                randStartType=3, nSampsToConsider=c(25*nCluster,25*clusterSize), nStartsToConsider=100*c(nCluster, clusterSize)){
+                                nSampsToConsider=c(25*nCluster,25*clusterSize), 
+				nStartsToConsider=100*c(nCluster, clusterSize)){
   #inclusion.probs are not working inclusion probs, rather the raw target inclusion probs
   #working inclusion.probs are an object (raster stack) from alterInclProbs.cluster
   
@@ -19,7 +20,7 @@
   }
 
   #sample the cluster centres
-  clusterDes <- quasiSamp.raster( nCluster, inclusion.probs=working.inclusion.probs$IP.bar, randStartType=randStartType, nSampsToConsider=nSampsToConsider[1], nStartsToConsider=nStartsToConsider[1])
+  clusterDes <- quasiSamp.raster( nCluster, inclusion.probs=working.inclusion.probs$IP.bar, randStartType=3, nSampsToConsider=nSampsToConsider[1], nStartsToConsider=nStartsToConsider[1])
   
   #the data for each cluster "swatch"
   clusterIPs <- raster::extract( working.inclusion.probs, clusterDes[,c("x","y")], buffer=clusterRadius, method='simple', cellnumbers=TRUE)
@@ -30,7 +31,7 @@
   #turned into a list of rasters
   tmp1Ras <- lapply( tmp1, function(xx) raster::rasterFromXYZ( cbind( xx[,c('x','y','cell','IP.s','IP.bar','condIP','IP.w')])))
   #spatial sample in each cluster
-  tmp2 <- lapply( 1:nCluster, function(xx) quasiSamp.raster(n=clusterSize, inclusion.probs = tmp1Ras[[xx]]$condIP, randStartType=randStartType, nSampsToConsider=nSampsToConsider[2], nStartsToConsider=nStartsToConsider[2]))
+  tmp2 <- lapply( 1:nCluster, function(xx) quasiSamp.raster(n=clusterSize, inclusion.probs = tmp1Ras[[xx]]$condIP, randStartType=3, nSampsToConsider=nSampsToConsider[2], nStartsToConsider=nStartsToConsider[2]))
   #re-append cell information
   tmp2a <- lapply( 1:nCluster, function(xx) cbind( raster::coordinates( tmp1Ras[[xx]]), raster::values( tmp1Ras[[xx]]))[tmp2[[xx]][,"ID"],])
   #append indexing

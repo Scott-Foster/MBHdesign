@@ -150,7 +150,7 @@
     setWorse <- which( !is.na( crit.old$ras) & (crit.old$ras !=0) & abs( crit.old$ras) < abs( crit$ras))
     if( length( setWorse) > 0){
       message( "Previous step increases tolerance of ", length( setWorse), " (",signif( 100*length(setWorse)/numNonZero, 3), "% of all non-zero) cells. Reversing the update of those cells.")
-      values( IP.w)[setWorse] <- values( IP.w.old)[setWorse]
+      raster::values( IP.w)[setWorse] <- raster::values( IP.w.old)[setWorse]
     }
    
     

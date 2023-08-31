@@ -33,7 +33,7 @@
 #big plane today
 set.seed(747)
 #the number of potential sampling locations
-N <- 100^2
+N <- 50^2
 #number of samples
 n <- 27
 #number of legacy sites
