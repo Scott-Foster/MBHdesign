@@ -1,6 +1,7 @@
 [.]/R/funs[.]rda
 
+^doc$
+^\.gitignore
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^doc$
-^Meta$
+^MBHbuildInfo.txt$

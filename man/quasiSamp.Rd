@@ -50,11 +50,11 @@ The quasiSamp.cluster function returns a SpatialPointsDataFrame. It contains an 
 \references{
  Robertson, B. L., Brown, J. A., McDonald, T. and Jaksons, P. (2013) BAS: Balanced Acceptance Sampling of Natural Resources. Biometrics \emph{69}: 776--784.
  
- Robertson, B.; McDonald, T.; Price, C. & Brown, J. (2017) A modification of balanced acceptance sampling Statistics \& Probability Letters, \emph{129}, 107--112
+ Robertson, B.; McDonald, T.; Price, C. & Brown, J. (2017) A modification of balanced acceptance sampling Statistics and Probability Letters, \emph{129}, 107--112
  
  Foster, S.D., Hosack, G.R., Lawrence, E., Przeslawski, R., Hedge,P., Caley, M.J., Barrett, N.S., Williams, A., Li, J., Lynch, T., Dambacher, J.M., Sweatman, H.P.A, and Hayes, K.R. (2017) Spatially-Balanced Designs that Incorporate Legacy Sites. Methods in Ecology and Evolution \emph{8}:1433--1442.
 
- Foster, S.D., Lawrence, E., and Hoskins, A. (in review). Spatially-Balanced Cluster Sampling.
+ Foster, S.D., Lawrence, E., and Hoskins, A. (2023). Spatially Clustered Survey Designs. Journal of Agriculural, Biological and Environmental Statistics. 
 }
 \examples{
 #generate samples on a 100 x 100 grid

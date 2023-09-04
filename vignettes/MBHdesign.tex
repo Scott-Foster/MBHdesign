@@ -1,0 +1,59 @@
+%\VignetteIndexEntry{An Introduction to MBHdesign}
+%\VignettePackage{MBHdesign}
+%\VignetteEngine{knitr::knitr}
+
+\documentclass[article,shortnames,nojss]{jss}
+
+%% almost as usual
+\author{Scott D. Foster\\Data61, CSIRO, Hobart, Tasmania, Australia}
+\title{An Introduction to MBHdesign}
+\date{\itshape\today}
+
+%% for pretty printing and a nice hypersummary also set:
+\Plainauthor{Scott D. Foster} %% comma-separated
+\Plaintitle{An Introduction/Tutorial to MBHdesign} %% without formatting
+\Shorttitle{MBHdesign} %% a short title (if necessary)
+
+\Abstract{
+
+A robust scientific conclusion is the result of a rigorous scientific process. In observational ecology, this process involves making inferences about a population from a sample. The sample is crucial, and is the result of implementing a \textit{survey design}. A good survey design ensures that the data from the survey is capable of answering the research question. Better designs, such as spatially balanced designs, will also be as precise as possible given the constraints of the budget. 
+
+The MBHdesign package is useful for creating spatially balanced designs. There are four tasks that it is intended to address: 1) designing spatially-balanced surveys using Balanced Adaptive Sampling \citep[BAS][]{rob13,rob17b}; 2) designing and analysing spatially-balanced surveys that incorporate existing legacy sites, using \citet{fos17a}; 3) designing spatially-balanced transect-based surveys using the methods described in \citet{fos20}, and; 4) designing spatially-balanced cluster designs \citet{fos23}. The first example in this tutorial generates a point-based design and shows how legacy sites can be incorporated. There are three steps to this process:
+  \begin{enumerate}
+  	\item Altering inclusion probabilities for spatial balance, taking into account the location of legacy sites. This is done using the function \texttt{alterInclProbs};
+  	\item Generating spatially balanced designs for a given set of inclusion probabilities, through the function \texttt{quasiSamp}; and
+  	\item Analysing some (made up) data using model-based methods (using \texttt{modEsti}).
+  \end{enumerate}
+
+The second example in this tutorial generates a transect-based design over the same inclusion probabilities. This consists of just one substantive step: calling the \texttt{transectSamp} function. 
+
+The third example in this tutorial generates a clustered sample, where groups of sites are chosen to be spatially similar but these clusteres are spatially segregated. This process relies on use of the \texttt{quasSamp.cluster} function.
+}
+\Keywords{Spatially-Balanced Survey Design, Balanced Adaptive Sampling, Transect, Cluster, \proglang{R}}
+\Plainkeywords{Spatially-Balanced Survey Design, Balanced Adaptive Sampling, Transect, Cluster, R} %% without formatting
+%% at least one keyword must be supplied
+
+\Address{
+  Scott D. Foster\\
+  CSIRO\\
+  Marine Laboratories\\
+  GPObox 1538\\
+  Hobart 7001\\
+  Australia
+  E-mail: \email{scott.foster@csiro.au}
+}
+
+%\usepackage{fullpage}
+\usepackage{natbib}
+%\usepackage{url}
+\usepackage{hyperref}
+%\usepackage{nicefrac}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\usepackage{Sweave}
+\begin{document}
+\input{MBHdesign-concordance}
+%\SweaveOpts{concordance=TRUE}
+
+%<<prelim, echo = FALSE, results = "hide">>=

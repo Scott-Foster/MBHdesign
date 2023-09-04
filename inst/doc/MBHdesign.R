@@ -265,7 +265,7 @@ volcano <- raster( volcano, crs="+proj=utm +datum=WGS84 +units=km")
 ## ----clusterSamp--------------------------------------------------------------
 #take the cluster sample
 samp <- quasiSamp.cluster( nCluster=10, clusterSize=5, clusterRadius=0.05, 
-				inclusion.probs = volcano, randStartType=2)
+				inclusion.probs = volcano)
 #plot it over the volcano data
 plot( volcano)
 #the sample points
@@ -276,7 +276,7 @@ plot( attr( samp, "clusterDes"), add=TRUE, pch=1, col='red')
 
 ## ----clusterOverSamp----------------------------------------------------------
 #Create the working probabilties for the correct sized cluster.
-workProbs <- alterInclProbs.cluster( nCluster=15, clusterSize=5,
+workProbs <- alterInclProbs.cluster( nCluster=15, clusterSize=5, mc.cores=1,
 			    clusterRadius=0.05, inclusion.probs=volcano)
 #take the (over-sample)
 overSamp <- quasiSamp.cluster( nCluster=15, clusterSize=10, 
