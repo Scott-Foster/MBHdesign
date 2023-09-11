@@ -141,7 +141,7 @@
   if( seMethod=="BayesianBoot"){
     control <- getControl( control)
     funny <- function(x){
-      wts <- rexp( length(fm$y), 1)
+      wts <- stats::rexp( length(fm$y), 1)
       wts <- wts / sum( wts)
       fm1 <- stats::update( fm, weights=wts)
       return( stats::coef( fm1))
@@ -153,7 +153,7 @@
 	  stop("Crash. Probably due to matrix of prediction sites by bootstrap samples being too large for your machine.  Try reducing either or both")
 	preds <- fm$family$linkinv( etas)
   preds <- colMeans( preds)
-  ret <- list( mean=mean( preds), se=sd( preds), CI=stats::quantile( preds, c(0.025, 0.975)))
+  ret <- list( mean=mean( preds), se=stats::sd( preds), CI=stats::quantile( preds, c(0.025, 0.975)))
   return( ret)
 }
 
@@ -183,7 +183,7 @@
 }
 
 "modEsti" <- function( y, locations, includeLegacyLocation=TRUE, legacyIDs=NULL, predPts=NULL, 
-                       family=gaussian(), offset=rep(0,length(y)), control=list()) {
+                       family=stats::gaussian(), offset=rep(0,length(y)), control=list()) {
   control <- getControl( control)
   locations <- as.matrix( locations)
 	if( is.null( predPts)){ #if not provided then make up a grid
@@ -198,14 +198,14 @@
       stop("need to provide the rownumbers (of locations argument) that are legacy sites in the legacyIDs argument")
     formPart3 <- paste0("+combinedDistToLegacy")#paste0("+s(distToNearLegacy,k=control$k,bs='cr')")
     my.form <- paste0(my.form, formPart3)  
-    disty <- as.matrix( dist( locations, diag=TRUE, upper=TRUE)) #all locations
+    disty <- as.matrix( stats::dist( locations, diag=TRUE, upper=TRUE)) #all locations
     disty <- disty[,legacyIDs]
     sigma <- find.sigma( n=nrow( locations)-length( legacyIDs), nL=length( legacyIDs), potSites=predPts)
     combinedDistToLegacy <- rowSums( exp( -(disty^2)/(sigma*sigma) ) )
   }
   else
     combinedDistToLegacy <- rep( NA, length( y)) #distToNearLegacy <- rep( NA, length( y))
-  my.form <- as.formula( my.form)
+  my.form <- stats::as.formula( my.form)
   
   mod.dat <- as.data.frame( cbind( y, locations, combinedDistToLegacy))
 	fm <- mgcv::gam( my.form, data=mod.dat, family=family, offset=offset)
@@ -242,7 +242,7 @@
 	  stop("Crash. Probably due to matrix of prediction sites by B samples being too large for your machine.  Try reducing either or both (or getting more memory on your machine)")
 	preds <- fm$family$linkinv( etas)
   preds <- colMeans( preds)
-  ret <- list( mean=mean( preds), se=sd( preds), CI=quantile( preds, c(0.025, 0.975)))
+  ret <- list( mean=mean( preds), se=stats::sd( preds), CI=quantile( preds, c(0.025, 0.975)))
 
   return( ret)
 }
@@ -379,7 +379,7 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   #saving and scaling the defined IPs
   IP.orig <- inclusion.probs
   raster::values(IP.orig) <- raster::values(IP.orig)/sum(raster::values(IP.orig), na.rm = TRUE)
-  tmp1 <- extent(inclusion.probs)
+  tmp1 <- raster::extent(inclusion.probs)
   tmp <- matrix(c(tmp1@xmin, tmp1@xmax, tmp1@ymin, tmp1@ymax), ncol = 2, byrow = TRUE)
   designParams.short <- list(dimension = 2, study.area = matrix(c(tmp[1,1], tmp[2, 1], tmp[1, 2], tmp[2, 1], tmp[1, 2], tmp[2,2], tmp[1, 1], tmp[2, 2]), ncol = 2, byrow = TRUE))
   

@@ -5,7 +5,7 @@
 }
 \usage{
  modEsti( y, locations, includeLegacyLocation=TRUE, legacyIDs=NULL, predPts=NULL,
-                               family=gaussian(), offset=rep(0,length(y)), control=list())
+			family=stats::gaussian(), offset=rep(0,length(y)), control=list())
 }
 \arguments{
 \item{ y}{a numeric vector of all observations (at new sites and legacy sites) collected in the survey}

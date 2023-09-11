@@ -1,7 +1,8 @@
 "quasiSamp.cluster"  <- function( nCluster, clusterSize, clusterRadius, 
                                 inclusion.probs=NULL, working.inclusion.probs=NULL,
                                 nSampsToConsider=c(25*nCluster,25*clusterSize), 
-				nStartsToConsider=100*c(nCluster, clusterSize)){
+				nStartsToConsider=100*c(nCluster, clusterSize),
+				mc.cores=parallel::detectCores()-1){
   #inclusion.probs are not working inclusion probs, rather the raw target inclusion probs
   #working inclusion.probs are an object (raster stack) from alterInclProbs.cluster
   
@@ -16,7 +17,7 @@
     
   if( is.null( working.inclusion.probs)){
     message( "No working.inclusion.probs specified. Calculating now (with default computational options.")
-    working.inclusion.probs <- alterInclProbs.cluster( nCluster=nCluster, clusterSize=clusterSize, clusterRadius=clusterRadius, inclusion.probs=inclusion.probs, maxIter=500, tolerance=NULL, mc.cores=2, doPlot=FALSE)
+    working.inclusion.probs <- alterInclProbs.cluster( nCluster=nCluster, clusterSize=clusterSize, clusterRadius=clusterRadius, inclusion.probs=inclusion.probs, maxIter=500, tolerance=NULL, mc.cores=mc.cores, doPlot=FALSE)
   }
 
   #sample the cluster centres
@@ -40,9 +41,9 @@
   tmp3 <- do.call( "rbind", tmp2a)
   colnames( tmp3) <- c("x","y", "cellID", "IP.s", "IP.bar", "IP.cond", "IP.w", "point", "cluster")
   tmp3 <- as.data.frame( tmp3[,c("x","y","cluster","point","cellID","IP.s","IP.bar","IP.cond","IP.w")])
-  tmp4 <- sp::SpatialPointsDataFrame( coords = as.matrix( tmp3[,c("x","y")]), data=tmp3[,-(1:2)], proj4string=sp::CRS( proj4string(working.inclusion.probs)))
+  tmp4 <- sp::SpatialPointsDataFrame( coords = as.matrix( tmp3[,c("x","y")]), data=tmp3[,-(1:2)], proj4string=sp::CRS( raster::proj4string(working.inclusion.probs)))
   
-  tmpClust <- sp::SpatialPointsDataFrame( coords=as.matrix( clusterDes[,1:2]), data=clusterDes[,-(1:2)], proj4string=sp::CRS( proj4string( working.inclusion.probs)))
+  tmpClust <- sp::SpatialPointsDataFrame( coords=as.matrix( clusterDes[,1:2]), data=clusterDes[,-(1:2)], proj4string=sp::CRS( raster::proj4string( working.inclusion.probs)))
   attr( tmp4, "clusterDesign") <- tmpClust
 
   return( tmp4)

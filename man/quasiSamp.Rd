@@ -14,7 +14,8 @@
  quasiSamp.cluster( nCluster, clusterSize, clusterRadius, inclusion.probs=NULL, 
                                 working.inclusion.probs=NULL, 
 				nSampsToConsider=c(25*nCluster,25*clusterSize),
-				nStartsToConsider=100*c(nCluster, clusterSize))
+				nStartsToConsider=100*c(nCluster, clusterSize),
+				mc.cores=parallel::detectCores()-1)
 }
 \arguments{
 \item{ n}{the number of samples to take.}
@@ -29,6 +30,7 @@
 \item{ randStartType}{the type of random start Halton sequence to use. The choices are 3 (default) as recommended in Robertson et al (2017), which improves the match between observed and specified inclusion probabilities (i.e. you get closer to what you want). Other options are 2 which gives the process in Robertson et al (2013), and 1 which is a mis-interpretation of method 2 (constrained so that the size of the skip in each dimension is equal). Note that randStartType=1 is used in Foster et al (2017).}
 \item{ nSampsToConsider}{the total number of samples to consider in the BAS step (rejection sampling). The default is 25*n, which means that 25*n halton numbers are drawn and then thinned according to the inclusion probabilities. Users will want to increase this number if inclusion probabilities are extremely unbalanced or if the number of samples required is close to, or exceeds, 25*n. Reduce if you want the code to run quicker and are confident that a sample will be found using less. For quasiSamp.cluster, nsampsToConsider is a vector of length 2. The first element specifies the number of samples to consider for sampling clusters. The second element specifies the number of samples for sampling within each cluster.}
 \item{ nStartsToConsider}{(only used when randStartType=3). For quasiSamp and quasiSamp.raster: The maximum number of times the randomisation process should be performed before giving up. Default is 100*n. If this is not enough, then consider increasing it (and probably waiting longer for your computer to finish). For quasiSamp.cluster: a two element numeric vector giving the number of starts to attempt at each level of the randomisation process.}
+\item{ mc.cores}{ When quasiSamp.cluster is called without a working.inclusion.probs argument (NULL), then \code{ \link{alterInclProbs.cluster}} is called with this many cores used.}
 }
 \details{ These function are an implementation of the balanced adaptive sampling (BAS) designs presented in Robertson et al. (2013) and Robertson et al. (2017). The former forms the basis for the methods in Foster et al (2017) and the latter is a modification of the former. The BAS approach uses Halton sequences of quasi-random numbers, which are evenly spread over space, as the basis for generating spatially balanced designs. In this implementation, we requrie that the inclusion probabilities be given as points in space and the BAS design is the set of these points that lie closest to a continuous-space Halton sequence. Computational speed has been rudimentily optimised, but (of course) it could be done better.
 
