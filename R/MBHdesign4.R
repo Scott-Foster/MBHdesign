@@ -371,22 +371,22 @@ quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NU
 
 quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
 {
-  if (!inherits(inclusion.probs, "RasterLayer")) 
-    inclusion.probs <- try( raster::raster( inclusion.probs), silent=TRUE)
-  if (!inherits(inclusion.probs, "RasterLayer")) 
-    stop("RasterLayer must be passed as input (argument inclusion.probs). It must be a RasterLayer, or something that can be coerced to a RasterLayer using raster::raster. Please revise, or use quasiSamp (not quasiSamp.raster)")
-  raster::values(inclusion.probs) <- raster::values(inclusion.probs)/max(raster::values(inclusion.probs), na.rm = TRUE)
+#  if (!inherits(inclusion.probs, "RasterLayer")) 
+#    inclusion.probs <- try( terra::rast( inclusion.probs), silent=TRUE)
+#  if (!inherits(inclusion.probs, "RasterLayer")) 
+#    stop("RasterLayer must be passed as input (argument inclusion.probs). It must be a RasterLayer, or something that can be coerced to a RasterLayer using raster::raster. Please revise, or use quasiSamp (not quasiSamp.raster)")
+  terra::values(inclusion.probs) <- terra::values(inclusion.probs)/max(terra::values(inclusion.probs), na.rm = TRUE)
   #saving and scaling the defined IPs
   IP.orig <- inclusion.probs
-  raster::values(IP.orig) <- raster::values(IP.orig)/sum(raster::values(IP.orig), na.rm = TRUE)
-  tmp1 <- raster::extent(inclusion.probs)
-  tmp <- matrix(c(tmp1@xmin, tmp1@xmax, tmp1@ymin, tmp1@ymax), ncol = 2, byrow = TRUE)
+  terra::values(IP.orig) <- terra::values(IP.orig)/sum(terra::values(IP.orig), na.rm = TRUE)
+  tmp1 <- terra::ext(inclusion.probs)
+  tmp <- matrix( tmp1[], ncol=2, byrow=TRUE)  #matrix(c(tmp1@xmin, tmp1@xmax, tmp1@ymin, tmp1@ymax), ncol = 2, byrow = TRUE)
   designParams.short <- list(dimension = 2, study.area = matrix(c(tmp[1,1], tmp[2, 1], tmp[1, 2], tmp[2, 1], tmp[1, 2], tmp[2,2], tmp[1, 1], tmp[2, 2]), ncol = 2, byrow = TRUE))
   
   kount <- 1
   repeat{
     samp <- quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams = designParams.short)
-    sampIDs <- raster::extract(inclusion.probs, samp[, 1:2], cellnumbers = TRUE)
+    sampIDs <- terra::extract( x=inclusion.probs, y=samp[, 1:2], cells = TRUE)
     lotsOvals <- sampIDs[, 2]
     sampIDs <- sampIDs[, 1]
     sampIDs.2 <- which(samp[, 3] < lotsOvals)
@@ -402,8 +402,7 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   }
   else 
     stop("Failed to find a design. Too few samples considered for BAS. It is possible that the inclusion probabilities are very low and uneven OR that the sampling area is very irregular (e.g. long and skinny) OR something else. Please try again (less likely to work) OR make inclusion probabilities more even (more likely but possibly undesireable) OR increase the number of sites considered (likely but computationally expensive).")
-  #samp <- as.data.frame(cbind(raster::coordinates(inclusion.probs)[sampIDs,], lotsOvals, sampIDs))
-  samp <- as.data.frame(cbind(raster::coordinates(inclusion.probs)[sampIDs,], raster::extract( IP.orig, raster::coordinates( inclusion.probs)[sampIDs,]), sampIDs))
+  samp <- as.data.frame(cbind(terra::crds(inclusion.probs, na.rm=FALSE)[sampIDs,], terra::extract( x=IP.orig, y=terra::crds( inclusion.probs, na.rm=FALSE)[sampIDs,]), sampIDs))
   colnames(samp) <- c(colnames(samp)[1:2], "inclusion.probabilities", "ID")
   return(samp)
 }

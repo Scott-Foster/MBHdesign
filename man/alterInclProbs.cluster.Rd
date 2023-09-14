@@ -19,7 +19,7 @@
 }
 \details{ Using the spatially-balanced 2-stage clustering process of Foster et al (in prep) will not, without careful consideration and adjustments, respect the inclusion probabilities specified by the user. This function provides the means to create _working_ inclusion probabilities, which when used in the 2-stage process _will_ produce the specified inclusion probabilies.
 }
-\value{The output of this function is designed for direct input into \code{\link{quasiSamp.cluster}}. It contains a rasterStack with four layers: the user-specified inclusion probabilities (IP.s), the observed inclusion probabilities (IP.o, those inclusion probabilities obtained when using 2-stage sampling with the working inclusion probabilities), the working inclusion probabilities and the area-summed working inclusion probabilities (IP.bar). The IP.bar are based on the working inclusion probabilities and are used to sample the centre of clusters.
+\value{The output of this function is designed for direct input into \code{\link{quasiSamp.cluster}}. It contains a SpatRaster with four layers: the user-specified inclusion probabilities (IP.s), the observed inclusion probabilities (IP.o, those inclusion probabilities obtained when using 2-stage sampling with the working inclusion probabilities), the working inclusion probabilities and the area-summed working inclusion probabilities (IP.bar). The IP.bar are based on the working inclusion probabilities and are used to sample the centre of clusters.
 }
 \seealso{\code{\link{quasiSamp.cluster}}
 }
