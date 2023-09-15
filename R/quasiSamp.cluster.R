@@ -1,5 +1,5 @@
 "extractWithBuffer" <- function( ras, cellIDs, width){
-  pnts <- terra::as.points( ras)[cellIDs]
+  pnts <- terra::as.points( ras, na.rm=FALSE)[cellIDs]
   buffs <- terra::buffer( pnts, width=width)
   extry <- terra::extract( ras, buffs, cells=TRUE)
 

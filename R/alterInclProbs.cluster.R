@@ -86,7 +86,7 @@
   terra::values( inclusion.probs) <- nCluster * clusterSize * terra::values( inclusion.probs) / sum( terra::values( inclusion.probs), na.rm=TRUE)
     
   if( is.null( tolerance)){
-    tmp <- stats::median( terra::values( inclusion.probs)[terra::values( inclusion.probs)>0])
+    tmp <- stats::median( terra::values( inclusion.probs)[terra::values( inclusion.probs)>0], na.rm=TRUE)
     tolerance <- 0.0001 * tmp
   }
   
@@ -105,6 +105,8 @@
   
   #weight matrix for focal calculations
   wtMat <- terra::focalMat( x=inclusion.probs, d=clusterRadius, type="circle")
+  if( !max( dim( wtMat), na.rm=TRUE) > 1)
+    stop( "clusterRadius is smaller than a cell. Please re-consider.")
   wtMat[wtMat!=0] <- 1
   wtMatMask <- which( t( wtMat)==1)
   wtDim <- dim( wtMat)
@@ -122,7 +124,7 @@
   countty[myMaskID] <- NA
   
   #Initialise the working values from linear approx
-  IP.w <- inclusion.probs / terra::rast( cbind( terra::crds(inclusion.probs), clusterSize*countty), type='xyz', crs=terra::crs( inclusion.probs))
+  IP.w <- inclusion.probs / terra::rast( cbind( terra::crds(inclusion.probs, na.rm=FALSE), clusterSize*countty), type='xyz', crs=terra::crs( inclusion.probs))
   IP.w.wrap <- terra::wrap( IP.w)
   #IP.w <- inclusion.probs / ( clusterSize * countty)#sum( wtMat==1))
   terra::values( IP.w)[is.na( terra::values( IP.w))] <- 0
@@ -233,7 +235,7 @@
   IP.w.wrap <- terra::wrap( IP.w)
   QandDeriv[is.na( QandDeriv[,1]),1] <- 0
   QandDeriv[myMask,1] <- NA
-  IP.o <- terra::rast( cbind( terra::crds( inclusion.probs), QandDeriv[,1]), type='xyz', crs=terra::crs(inclusion.probs))
+  IP.o <- terra::rast( cbind( terra::crds( inclusion.probs, na.rm=FALSE), QandDeriv[,1]), type='xyz', crs=terra::crs(inclusion.probs))
   IP.bar <- terra::rast( t( parallel::parSapply( cl, 1:terra::nrow( IP.w), IP.barFromRow, ras=IP.w.wrap, wtMat=wtMat)))
   terra::values( IP.bar)[myMaskID] <- NA
   tmp.bar <- IP.w
