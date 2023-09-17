@@ -420,24 +420,11 @@ The very nature of spatially-balanced designs implies that the sampling location
 library( terra) 
 #import example data
 egDat <- rast( system.file("ex/elev.tif", package = "terra"))
-values( egDat) <- values( egDat) - min( values( egDat), na.rm=TRUE)
+values( egDat) <- ( values( egDat) - min( values( egDat), na.rm=TRUE)) / 50
 #reproject to a UTM (zone taken from nominal long/lat)
 egDat <- project( egDat, "+proj=utm +zone=31N +datum=WGS84 +units=km")
 #aggregate to reduce run time (not excessive, but it is 'just' an example)
 egDat <- aggregate( egDat, fact=2)
-
-##import the data and flip it so that latitudes index south to north
-#volcano <- datasets::volcano[nrow(datasets::volcano):1,]
-##re-align the minimum altitude
-#volcano <- volcano - min( volcano)
-##exaggerate altitude
-#volcano <- 50*volcano
-##rescale for inclusion probabilities
-##10 clusters of 5 sites
-#volcano <- 10*5*volcano / sum( volcano)
-##cast to a raster
-#volExtent <- ext( 0.01*c(0,ncol(volcano), 0, nrow( volcano)))
-#volcano <- rast( volcano, type='xy', crs="+proj=utm +zone=59S +datum=WGS84 +units=km +no_defs +type=crs", extent=volExtent)
 @
 
 \subsection*{Take the Cluster Sample}
@@ -445,8 +432,7 @@ egDat <- aggregate( egDat, fact=2)
 The process of taking a clustered sample is almost as straightforward as a regular point-based sample, and the process mostly follows that of taking a point sample. However, some extra information is needed about the clusters themselves. The function quasiSamp.cluster performs all the necessary computations and produces an obvious output. We note that quasiSamp.cluster, like quasiSamp.raster, accepts only raster objects for the inclusion probabilities.
 
 <<clusterSamp>>=
-#I'm currently on a Embraer 190, so it *almost* seems appropriate
-set.seed( 190)  
+set.seed( 727)  
 #take the cluster sample
 #increase mc.cores for faster processing
 samp <- quasiSamp.cluster( nCluster=10, clusterSize=5, clusterRadius=5, 
@@ -488,7 +474,6 @@ points( overSamp[overSamp$cluster>10 & overSamp$point<=5,c("x","y")], cex=0.5)
 points( overSamp[overSamp$cluster>10 & overSamp$point>5,c("x","y")], 
 		cex=0.5, col='red')
 @
-
 
 \subsection*{Last Things Last}
 
