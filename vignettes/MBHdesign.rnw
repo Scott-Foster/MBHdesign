@@ -413,18 +413,16 @@ rm( list=c( "volSamp", "tmpMat", "vol.constraints.bool",
 
 \section*{Clustered Surveys}
 
-The very nature of spatially-balanced designs implies that the sampling locations will be well spread out in space. Whilst this is statistically appealing (as it is usually efficient) it can also create logistic difficulties -- for example transit time between sampling locations is large. To overcome this logistical constraint, the function \texttt{quasiSamp.cluster} has the ability to group sampling locations into clusters. Spatial balance is maintained at both the between-cluster and within-cluster levels \citep[see][for details]{fos23}. A clustered sample, consisting of 10 clusters or 5 samples, will now be generated using an exaggerated version of the volcano dataset.
+The very nature of spatially-balanced designs implies that the sampling locations will be well spread out in space. Whilst this is statistically appealing (as it is usually efficient) it can also create logistic difficulties -- for example transit time between sampling locations is large. To overcome this logistical constraint, the function \texttt{quasiSamp.cluster} has the ability to group sampling locations into clusters. Spatial balance is maintained at both the between-cluster and within-cluster levels \citep[see][for details]{fos23}. A clustered sample, consisting of 10 clusters or 5 samples, will now be generated using an exaggerated version of data representing Soil Moisture at the Root Zone (SMRZ) over a 1km raster of the Australian Capital Territory \citep[see][]{fro18}.
 
 <<clusSetup>>=
 #need raster functions
 library( terra) 
 #import example data
-egDat <- rast( system.file("ex/elev.tif", package = "terra"))
-values( egDat) <- ( values( egDat) - min( values( egDat), na.rm=TRUE)) / 50
-#reproject to a UTM (zone taken from nominal long/lat)
-egDat <- project( egDat, "+proj=utm +zone=31N +datum=WGS84 +units=km")
-#aggregate to reduce run time (not excessive, but it is 'just' an example)
-egDat <- aggregate( egDat, fact=2)
+egDat <- rast(system.file(
+		    "extdata", "ACT_DemoData.grd", 
+		    package="MBHdesign"))$soilMoisture
+values( egDat) <- ( values( egDat) - min( values( egDat), na.rm=TRUE)) * 5
 @
 
 \subsection*{Take the Cluster Sample}
@@ -437,10 +435,10 @@ set.seed( 727)
 #increase mc.cores for faster processing
 samp <- quasiSamp.cluster( nCluster=10, clusterSize=5, clusterRadius=5, 
 				inclusion.probs = egDat, mc.cores=1)
-#plot it over the volcano data
+#plot it over the egData data
 plot( egDat)
 #the sample points
-points( samp[,c("x","y")], pch=20, cex=0.5)
+points( samp$x, samp$y, pch=20, cex=0.5)
 #the centres of the clusters 
 #		(not sample points but potentially useful nevertheless)
 points( attr( samp, "clusterDes")[,c("x","y")], pch=1, col='red', cex=0.5)
@@ -483,7 +481,7 @@ The only remaining thing to do is to tidy up our workspace. First, to export our
 #write.csv( as.data.frame( overSamp), 
 #      file="clusterSamp1.csv", row.names=FALSE)
 #tidy
-rm( list=c("volcano","overSamp","workProbs","samp","volExtent"))
+rm( list=c("egDat","overSamp","workProbs","samp"))
 @
 
 
@@ -491,7 +489,7 @@ rm( list=c("volcano","overSamp","workProbs","samp","volExtent"))
 
 This package started life as part of the  Marine Biodiversity Hub, a collaborative partnership supported through funding from the Australian Government's National Environmental Science Program. Our goal is to assist decision-makers to understand, manage and conserve Australia's environment by funding world-class biodiversity science. NESP Marine Biodiversity Hub partners include the Institute for Marine and Antarctic Studies, University of Tasmania; CSIRO, Geoscience Australia, Australian Institute of Marine Science, Museum Victoria, Charles Darwin University, University of Western Australia, NSW Office of Environment and Heritage, NSW Department of Primary Industries and the Integrated Marine Observing System.  You can check out the project \href{https://www.nespmarine.edu.au/project/project-d2-standard-operating-procedures-survey-design-condition-assessment-and-trend}{here}.
 
-Since this intial project, its life has been moulded by the needs of other projects -- notably the \href{https://www.csiro.au/en/research/indigenous-science/managing-country/koala-monitoring-program}{National Koala Monitoring Program}.
+Since this initial project, its life has been moulded by the needs of other projects -- notably the \href{https://www.csiro.au/en/research/indigenous-science/managing-country/koala-monitoring-program}{National Koala Monitoring Program}.
 
 %\bibliographystyle{authordate1}
 %\bibliography{/home/fos085/zoteroFiles/JabRefPDF/SDFReferences}
