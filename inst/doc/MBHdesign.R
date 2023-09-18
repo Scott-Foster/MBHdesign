@@ -275,3 +275,35 @@ points( samp$x, samp$y, pch=20, cex=0.5)
 #		(not sample points but potentially useful nevertheless)
 points( attr( samp, "clusterDes")[,c("x","y")], pch=1, col='red', cex=0.5)
 
+## ----clusterOverSamp----------------------------------------------------------
+#Create the working probabilties for the correct sized cluster.
+workProbs <- alterInclProbs.cluster( nCluster=15, clusterSize=5, mc.cores=1,
+			    clusterRadius=5, inclusion.probs=egDat)
+#take the (over-sample)
+set.seed( 747)
+overSamp <- quasiSamp.cluster( nCluster=15, clusterSize=10, 
+		clusterRadius=5, working.inclusion.probs = workProbs)
+#plot the results
+par( mfrow=c(1,2))
+plot( egDat, main="Planned and Spare points")
+#the planned sample
+points( overSamp[overSamp$cluster<=10 & overSamp$point<=5,c("x","y")], cex=0.5)
+#the over-sample (within clusters 1:10)
+points( overSamp[overSamp$cluster<=10 & overSamp$point>5,c("x","y")], 
+		cex=0.5, col='red')
+plot( egDat, main="Over-sampled clusters")
+#the overs-sampled clusters (themselves oversampled)
+points( overSamp[overSamp$cluster>10 & overSamp$point<=5,c("x","y")], cex=0.5)
+points( overSamp[overSamp$cluster>10 & overSamp$point>5,c("x","y")], 
+		cex=0.5, col='red')
+
+## ----clusterTidy--------------------------------------------------------------
+##write csv
+#write.csv( as.data.frame( overSamp), 
+#      file="clusterSamp1.csv", row.names=FALSE)
+#tidy
+rm( list=c("egDat","overSamp","workProbs","samp"))
+
+## ----sessionInfo, results = "asis", echo = FALSE------------------------------
+toLatex(sessionInfo())
+
