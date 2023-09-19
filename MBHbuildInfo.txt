@@ -1,5 +1,7 @@
 
+#for github submission
 #At the R console command line (will take a while)
+#make sure that usePrecompiledData is set to FALSE
 devtools::build_vignettes(pkg=".")
 tools::compactPDF(dir( "./doc", full.names=TRUE)[grep( ".pdf", dir( "./doc/"))], gs_quality = "ebook")
 #move the doc folder to be wholly contained in the inst folder.
@@ -9,6 +11,12 @@ devtools::build( pkg=".", vignettes=FALSE)	#for uploading to github (for uploadi
 
 
 #For CRAN submission
-devtools::build( pkg=".")		#for CRAN
+#make sure that usePrecompiledData is set to FALSE
+#and that the precompiled files in inst/extdata are up-to-date
+R CMD build MBHdesign --compact-vignettes=gs+qpdf
+R CMD INSTALL MBHdesign_x.y.z.tar.gz 
+#edit vignette code by setting usePrecompiledData <- TRUE
+R CMD build MBHdesign --compact-vignettes=gs+qpdf
 #check
 R CMD check MBHdesign_2.3.13.tar.gz --as-cran
+#submit to CRAN.

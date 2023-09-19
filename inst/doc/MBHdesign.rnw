@@ -78,13 +78,20 @@ devtools::install_github( repo="Scott-Foster/MBHdesign", build_vignettes=FALSE)
 \noindent If you install from CRAN, you will be asked which repository you want to use. Just use one that is geographically close to where you are (or where your computer is). Installing from the github repos will give you the most up to date version. However, do take note of the \texttt{build\_vignettes\=FALSE} argument: the vignette can take a while to build (and has already been pre-built).
 
 Whichever way the package is installed, you'll have to load it:
-<<setup2>>=
+<<setup2, eval=TRUE>>=
 library( MBHdesign)
 @
 \noindent For illustration is is also good to fix the random number seed, so that this document is reproducible \textit{exactly}. However, and due to R evoloving, the results may differ between different versions of R. In particular, R/3.6 could be quite different from R/3.5.
 <<setSeed>>=
 set.seed( 747)  #a 747 is a big plane
 @
+
+\noindent Technical note about version on CRAN. CRAN has some strict rules for packages that it hosts. One of these is that the package must not take long to build. This vignette breaks this rule... As a work-around the version of this vignette in the CRAN package uses precompiled data (with the usePrecompiledData variable set to TRUE). However, on GitHub the package does not use precompiled data.  You'll see locations in the code where the running of certain functions is conditional on this variable. Please don't be confused by it.
+<<precompiled>>=
+#TRUE if you want some of the examples shortened by using pre-saved output
+usePrecompiledData <- FALSE
+@
+
 \noindent Now, we are good to go with the rest of the introduction.
 
 \section*{A Point-Based Design}
@@ -238,12 +245,13 @@ In this case, the standard error estimates are quite different. On average, they
 
 The only remaining thing to do is to tidy up our workspace. First, to export our sample locations. Second, to remove all objects for this analysis from your workspace.
 <<Tidy>>=
-#write csv
-write.csv( samp, file="pointSample1.csv", row.names=FALSE)
+##write csv if wanted
+#write.csv( samp, file="pointSample1.csv", row.names=FALSE)
 #tidy
 rm( list=c( "samp", "tmp", "se.estimator","tmpDat","tmpInclProbs",
 	    "mean.estimator","newHT","legacyHT","LegInclProbs",
-	    "fracLegacy","Zlegacy","Z","X","altInclProbs"))
+	    "fracLegacy","Zlegacy","Z","X","altInclProbs", "n", "N", 
+	    "my.seq","inclProbs", "offsetX", "legacySites"))
 @
 
 \newpage
@@ -306,8 +314,13 @@ my.control <- list(
 The sample is obtained by a relatively straight-forward call. They are also plotted over the inclusion probabilities.
 <<callTransectSamp>>=
 #take the transect sample
-samp <- transectSamp( n=n, potential.sites=X, inclusion.probs=inclProbs,
-		    control=my.control)
+if( !usePrecompiledData){
+  samp <- transectSamp( n=n, potential.sites=X, 
+                inclusion.probs=inclProbs, control=my.control)
+} else{
+  samp <- readRDS( system.file(
+		    "extdata", "transectSamp1.RDS", 
+		    package="MBHdesign"))}
 image( x=unique( X[,1]), y=unique( X[,2]),
     z=matrix( inclProbs, nrow=sqrt(nrow(X)), ncol=sqrt(nrow( X))),
     main="(Undadjusted) Inclusion Probabilities",
@@ -320,8 +333,8 @@ points( samp$points[,5:6], pch=20, cex=0.6)
 
 The only remaining thing to do is to tidy up our workspace. First, to export our sample locations. Second, to remove all objects for this analysis from your workspace.
 <<transTidy>>=
-#write csv
-write.csv( samp$transect, file="transectSample1.csv", row.names=FALSE)
+##write csv
+#write.csv( samp$transect, file="transectSample1.csv", row.names=FALSE)
 #tidy
 rm( list=c( "X", "inclProbs", "samp", "my.control", 
 	    "my.seq", "offsetX", "n", "N"))
@@ -338,7 +351,7 @@ Forcing down-hill transects isn't the only type of constraint. However, it is il
 <<volSetup, fig.width=9.43>>=
 library( MASS)  #for the data
 library( fields)  #for image.plot
-library( MBHdesign) #for the spatial design and constraints
+#library( MBHdesign) #for the spatial design and constraints
 set.seed( 717)  #Last plan I was on
 #number of transects
 n <- 20
@@ -361,9 +374,15 @@ vol.control <- list( transect.pattern="line", transect.nPts=10,
 So, that is the data. Note that there are locations where transects could descent and then ascend. The `hole' (crater) in the middle of the mountain is the largest and most obvious example.  To avoid transects that ascend and descend, we use an \texttt{MBHdesign} function
 
 <<volConstraint, fig.width=9.43>>=
-vol.constraints <- findDescendingTrans(
-  potential.sites = pot.sites[,c("x","y")], bathy=pot.sites$height,
-  in.area=rep( TRUE, nrow( pot.sites)), control=vol.control)
+if( !usePrecompiledData){
+  vol.constraints <- findDescendingTrans(
+        potential.sites = pot.sites[,c("x","y")], 
+        bathy=pot.sites$height, in.area=rep( TRUE, nrow( pot.sites)), 
+        control=vol.control)
+} else{
+  vol.constraints <- readRDS( system.file(
+		    "extdata", "transectConstraints1.RDS", 
+		    package="MBHdesign"))}
 #this is a matrix with nrow given by the number of sites and ncol by
 #   the number of rotations around each site
 print( dim( vol.constraints))
@@ -390,9 +409,14 @@ The task is to now sample the reduced sampling frame. Fortunately, with the cons
 
 <<volSample, fig.width=9.43>>=
 #take the sample
-volSamp <- transectSamp( n=n, potential.sites=pot.sites[,c("x","y")],
+if( !usePrecompiledData){
+  volSamp <- transectSamp( n=n, potential.sites=pot.sites[,c("x","y")],
                          control=vol.control,
                          constrainedSet=vol.constraints.bool)
+} else{
+  volSamp <- readRDS( system.file(
+		    "extdata", "transectSamp2.RDS", 
+		    package="MBHdesign"))}
 #visualise the sample
 image.plot( x=1:n.x, y=1:n.y, z=volcano,
             main="Uniform Probability Transect Sample", asp=1)
@@ -405,8 +429,8 @@ The only remaining thing to do is to tidy up our workspace. First, to export our
 #write.csv( volSamp$transect, file="volcanoSample1.csv", row.names=FALSE)
 #tidy
 rm( list=c( "volSamp", "tmpMat", "vol.constraints.bool", 
-	    "vol.constraints", "vol.control", "pot.sites", 
-	    "n", "n.x", "n.y"))
+   "vol.constraints", "vol.control", "pot.sites", 
+   "n", "n.x", "n.y", "volcano"))
 @
 
 \newpage
@@ -433,8 +457,13 @@ The process of taking a clustered sample is almost as straightforward as a regul
 set.seed( 727)  
 #take the cluster sample
 #increase mc.cores for faster processing
-samp <- quasiSamp.cluster( nCluster=10, clusterSize=5, clusterRadius=5, 
+if( !usePrecompiledData){
+  samp <- quasiSamp.cluster( nCluster=10, clusterSize=5, clusterRadius=5, 
 				inclusion.probs = egDat, mc.cores=1)
+} else{
+  samp <- readRDS( system.file(
+		    "extdata", "clusterSamp1.RDS", 
+		    package="MBHdesign"))}
 #plot it over the egData data
 plot( egDat)
 #the sample points
@@ -452,8 +481,13 @@ In the design that follows, an over sample of clusters (15 drawn for 10 initial 
 
 <<clusterOverSamp>>=
 #Create the working probabilties for the correct sized cluster.
-workProbs <- alterInclProbs.cluster( nCluster=15, clusterSize=5, mc.cores=1,
-			    clusterRadius=5, inclusion.probs=egDat)
+if( !usePrecompiledData){
+  workProbs <- alterInclProbs.cluster( nCluster=15, clusterSize=5, 
+                mc.cores=1, clusterRadius=5, inclusion.probs=egDat)
+} else{
+  workProbs <- readRDS( system.file(
+		    "extdata", "clusterWorkProbs1.RDS", 
+		    package="MBHdesign"))}
 #take the (over-sample)
 set.seed( 747)
 overSamp <- quasiSamp.cluster( nCluster=15, clusterSize=10, 
@@ -481,7 +515,7 @@ The only remaining thing to do is to tidy up our workspace. First, to export our
 #write.csv( as.data.frame( overSamp), 
 #      file="clusterSamp1.csv", row.names=FALSE)
 #tidy
-rm( list=c("egDat","overSamp","workProbs","samp"))
+rm( list=c("egDat","overSamp","workProbs","samp","usePrecompiledData"))
 @
 
 
