@@ -7,7 +7,7 @@ tools::compactPDF(dir( "./doc", full.names=TRUE)[grep( ".pdf", dir( "./doc/"))],
 #move the doc folder to be wholly contained in the inst folder.
 system( "mv -f ./doc/ ./inst/")
 #build package
-devtools::build( pkg=".", vignettes=FALSE)	#for uploading to github (for uploading to cran, don't pre-build vignettes)
+devtools::build( pkg=".", vignettes=FALSE)	#for uploading to github
 
 
 #For CRAN submission
@@ -16,7 +16,8 @@ devtools::build( pkg=".", vignettes=FALSE)	#for uploading to github (for uploadi
 R CMD build MBHdesign --compact-vignettes=gs+qpdf
 R CMD INSTALL MBHdesign_x.y.z.tar.gz 
 #edit vignette code by setting usePrecompiledData <- TRUE
+#make sure that the required RDS are in inst/extdata in the package
 R CMD build MBHdesign --compact-vignettes=gs+qpdf
 #check
-R CMD check MBHdesign_2.3.13.tar.gz --as-cran
+R CMD check MBHdesign_x.y.z.tar.gz --as-cran
 #submit to CRAN.

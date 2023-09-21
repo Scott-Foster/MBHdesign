@@ -91,7 +91,7 @@ plot( samp[,1:2], main="n=1000")
 #I'm sure that you get the idea now.
 
 ##The same for raster inclusion probabilities (just for illustration)
-#Xp <- raster::rasterFromXYZ( cbind( X,p))
+#Xp <- terra::rast( cbind( X,p), type='xyz')
 #samp <- quasiSamp( n=10, inclusion.probs=Xp)
 #plot( samp[,1:2], main="n=10 (raster)")
 #samp <- quasiSamp( n=250, inclusion.probs=Xp)

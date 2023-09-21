@@ -332,7 +332,7 @@
 
 quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NULL, inclusion.probs = NULL, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
 {
-  if (inherits(inclusion.probs, c( "RasterLayer", "SpatRast"))) {
+  if (inherits(inclusion.probs, c( "RasterLayer", "SpatRaster"))) {
     samp <- quasiSamp.raster(n = n, inclusion.probs = inclusion.probs, randStartType = randStartType, nSampsToConsider = nSampsToConsider)
     return(samp)
   }
