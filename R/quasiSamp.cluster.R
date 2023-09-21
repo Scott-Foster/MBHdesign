@@ -24,6 +24,22 @@
   if( !is.null( working.inclusion.probs))
     if( is.na( terra::crs( working.inclusion.probs)))
       message( "No projection specified for working.inclusion.probs, assuming lat/long (could cause an error later")
+  if( length( nStartsToConsider) != 2){
+    if( length( nStartsToConsider) == 1){
+      message( "nStartsToConsider is a scalar when it should be a vector of length 2. Please consider, but continuing with the specified scalar replicated (for now)")
+      nStartsToConsider <- rep( nStartsToConsider, 2)
+    }
+    else
+      stop( "nStartsToConsider should be a integer vector of length 2.  See ?quasiSamp.cluster.")
+  }
+  if( length( nSampsToConsider) != 2){
+    if( length( nSampsToConsider) == 1){
+      message( "nSampsToConsider is a scalar when it should be a vector of length 2. Please consider, but continuing with the specified scalar replicated (for now)")
+      nSampsToConsider <- rep( nSampsToConsider, 2)
+    }
+    else
+      stop( "nSampsToConsider should be a integer vector of length 2.  See ?quasiSamp.cluster.")
+  }
     
   if( is.null( working.inclusion.probs)){
     message( "No working.inclusion.probs specified. Calculating now (with default computational options.")
