@@ -57,8 +57,11 @@
   tmp <- cbind( tmp, IP.cond=unlist( tmp1))
   #coordinates
   tmp <- cbind( terra::xyFromCell( working.inclusion.probs$IP.w, tmp$cell), tmp[,c("cell","ID", "IP.s","IP.bar","IP.cond","IP.w")])
-  #turn into a list of SpatRast
-  tmpRast <- tapply( X=tmp, INDEX=tmp$ID, FUN=function(xx) terra::rast( xx[,c("x","y","cell","IP.s","IP.bar","IP.cond","IP.w")], type='xyz'))
+  #turn into a list of SpatRast (first try is down-grading to previous versions of R, second (tapply) seems to only work in later versions. Dumbing down for now.
+  tmpRast <- list()
+  for( ii in 1:length( unique( tmp$ID)))
+    tmpRast[[ii]] <- terra::rast( tmp[tmp$ID==unique( tmp$ID)[ii],c("x","y","cell","IP.s","IP.bar","IP.cond","IP.w")], type='xyz')
+#  tmpRast <- tapply( X=tmp, INDEX=tmp$ID, FUN=function(xx) terra::rast( xx[,c("x","y","cell","IP.s","IP.bar","IP.cond","IP.w")], type='xyz'))
   #spatial sample in each cluster
   tmp2 <- lapply( 1:nCluster, function(xx) quasiSamp.raster(n=clusterSize, inclusion.probs = tmpRast[[xx]]$IP.cond, randStartType=3, nSampsToConsider=nSampsToConsider[2], nStartsToConsider=nStartsToConsider[2]))
    
