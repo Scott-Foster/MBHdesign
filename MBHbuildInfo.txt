@@ -11,13 +11,13 @@ devtools::build( pkg=".", vignettes=FALSE)	#for uploading to github
 
 
 #For CRAN submission
-#make sure that usePrecompiledData is set to FALSE
+#make sure that usePrecompiledData (in the rnw) is set to FALSE
 #and that the precompiled files in inst/extdata are up-to-date
 R CMD build MBHdesign --compact-vignettes=gs+qpdf
 R CMD INSTALL MBHdesign_x.y.z.tar.gz 
-#edit vignette code by setting usePrecompiledData <- TRUE
+#edit vignette code (in the tarball) by setting usePrecompiledData <- TRUE
+#go to tarball, open, edit and save files in the inst/doc directory
 #make sure that the required RDS are in inst/extdata in the package
-R CMD build MBHdesign --compact-vignettes=gs+qpdf
 #check
 R CMD check MBHdesign_x.y.z.tar.gz --as-cran
 #submit to CRAN.
