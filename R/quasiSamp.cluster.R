@@ -10,6 +10,7 @@
                                 inclusion.probs=NULL, working.inclusion.probs=NULL,
                                 nSampsToConsider=c(25*nCluster,25*clusterSize), 
 				nStartsToConsider=100*c(nCluster, clusterSize),
+				randStartType=c(3,3),
 				mc.cores=parallel::detectCores()-1){
   #inclusion.probs are not working inclusion probs, rather the raw target inclusion probs
   #working inclusion.probs are an object (raster stack) from alterInclProbs.cluster
@@ -47,7 +48,7 @@
   }
 
   #sample the cluster centres
-  clusterDes <- quasiSamp.raster( nCluster, inclusion.probs=working.inclusion.probs$IP.bar, randStartType=3, nSampsToConsider=nSampsToConsider[1], nStartsToConsider=nStartsToConsider[1])
+  clusterDes <- quasiSamp.raster( nCluster, inclusion.probs=working.inclusion.probs$IP.bar, randStartType=randStartType[1], nSampsToConsider=nSampsToConsider[1], nStartsToConsider=nStartsToConsider[1])
   
   #the data for each cluster "swatch"
   clusterIPs <- terra::extract( working.inclusion.probs, clusterDes[,c("x","y")], buffer=clusterRadius, method='simple', cells=TRUE)
@@ -63,7 +64,7 @@
     tmpRast[[ii]] <- terra::rast( tmp[tmp$ID==unique( tmp$ID)[ii],c("x","y","cell","IP.s","IP.bar","IP.cond","IP.w")], type='xyz')
 #  tmpRast <- tapply( X=tmp, INDEX=tmp$ID, FUN=function(xx) terra::rast( xx[,c("x","y","cell","IP.s","IP.bar","IP.cond","IP.w")], type='xyz'))
   #spatial sample in each cluster
-  tmp2 <- lapply( 1:nCluster, function(xx) quasiSamp.raster(n=clusterSize, inclusion.probs = tmpRast[[xx]]$IP.cond, randStartType=3, nSampsToConsider=nSampsToConsider[2], nStartsToConsider=nStartsToConsider[2]))
+  tmp2 <- lapply( 1:nCluster, function(xx) quasiSamp.raster(n=clusterSize, inclusion.probs = tmpRast[[xx]]$IP.cond, randStartType=randStartType[2], nSampsToConsider=nSampsToConsider[2], nStartsToConsider=nStartsToConsider[2]))
    
   #cell IDs and conditional probs
 #  tmp <- lapply( 1:nCluster, function(xx) cbind( cell=clusterIPs[[xx]][,"cell"], IP.s=clusterIPs[[xx]][,"IP.s"], IP.bar=clusterIPs[[xx]][,"IP.bar"], condIP=clusterIPs[[xx]][,"IP.w"] / sum( clusterIPs[[xx]][,"IP.w"], na.rm=TRUE), IP.w=clusterIPs[[xx]][,"IP.w"]))
