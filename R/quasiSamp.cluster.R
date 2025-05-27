@@ -11,7 +11,8 @@
                                 nSampsToConsider=c(25*nCluster,25*clusterSize), 
 				nStartsToConsider=100*c(nCluster, clusterSize),
 				randStartType=c(3,3),
-				mc.cores=parallel::detectCores()-1){
+				mc.cores=parallel::detectCores()-1,
+				seed=NULL){
   #inclusion.probs are not working inclusion probs, rather the raw target inclusion probs
   #working inclusion.probs are an object (raster stack) from alterInclProbs.cluster
   
@@ -48,6 +49,8 @@
   }
 
   #sample the cluster centres
+  if( !is.null( seed))
+    set.seed( 747)
   clusterDes <- quasiSamp.raster( nCluster, inclusion.probs=working.inclusion.probs$IP.bar, randStartType=randStartType[1], nSampsToConsider=nSampsToConsider[1], nStartsToConsider=nStartsToConsider[1])
   
   #the data for each cluster "swatch"
@@ -64,6 +67,8 @@
     tmpRast[[ii]] <- terra::rast( tmp[tmp$ID==unique( tmp$ID)[ii],c("x","y","cell","IP.s","IP.bar","IP.cond","IP.w")], type='xyz')
 #  tmpRast <- tapply( X=tmp, INDEX=tmp$ID, FUN=function(xx) terra::rast( xx[,c("x","y","cell","IP.s","IP.bar","IP.cond","IP.w")], type='xyz'))
   #spatial sample in each cluster
+  if( !is.null( seed))
+    set.seed( seed+727)
   tmp2 <- lapply( 1:nCluster, function(xx) quasiSamp.raster(n=clusterSize, inclusion.probs = tmpRast[[xx]]$IP.cond, randStartType=randStartType[2], nSampsToConsider=nSampsToConsider[2], nStartsToConsider=nStartsToConsider[2]))
    
   #cell IDs and conditional probs

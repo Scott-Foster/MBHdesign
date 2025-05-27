@@ -4,9 +4,9 @@ opts_chunk$set(cache=TRUE, message = FALSE, comment = "", dev="pdf",
                       dpi=300, fig.show = "hold", fig.align = "center")
 
 ## ----setup1, eval=FALSE-------------------------------------------------------
-#  install.packages( "MBHdesign")
-#  ## or ##
-#  devtools::install_github( repo="Scott-Foster/MBHdesign", build_vignettes=FALSE)
+# install.packages( "MBHdesign")
+# ## or ##
+# devtools::install_github( repo="Scott-Foster/MBHdesign", build_vignettes=FALSE)
 
 ## ----setup2, eval=TRUE--------------------------------------------------------
 library( MBHdesign)

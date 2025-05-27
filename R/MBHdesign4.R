@@ -330,15 +330,18 @@
   return( samp)
 }
 
-quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NULL, inclusion.probs = NULL, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
+quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NULL, inclusion.probs = NULL, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n, seed=NULL) 
 {
   if (inherits(inclusion.probs, c( "RasterLayer", "SpatRaster"))) {
-    samp <- quasiSamp.raster(n = n, inclusion.probs = inclusion.probs, randStartType = randStartType, nSampsToConsider = nSampsToConsider)
+    samp <- quasiSamp.raster(n = n, inclusion.probs = inclusion.probs, randStartType = randStartType, nSampsToConsider = nSampsToConsider, seed=seed)
     return(samp)
   }
   designParams <- setDesignParams(dimension, study.area, potential.sites, inclusion.probs, n=n)
   c2cAll <- lapply(as.data.frame(designParams$potential.sites), function(xx) sort(unique(xx)))
   c2c <- sapply(c2cAll, function(xx) min(diff(xx)))
+
+  if( !is.null( seed))
+    set.seed( seed)
 
   kount <- 1
   repeat{
@@ -369,7 +372,7 @@ quasiSamp <- function (n, dimension = 2, study.area = NULL, potential.sites = NU
   return(samp)
 }
 
-quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n) 
+quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToConsider = 25*n, nStartsToConsider=100*n, seed=NULL) 
 {
 #  if (!inherits(inclusion.probs, "RasterLayer")) 
 #    inclusion.probs <- try( terra::rast( inclusion.probs), silent=TRUE)
@@ -382,6 +385,9 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   tmp1 <- terra::ext(inclusion.probs)
   tmp <- matrix( tmp1[], ncol=2, byrow=TRUE)  #matrix(c(tmp1@xmin, tmp1@xmax, tmp1@ymin, tmp1@ymax), ncol = 2, byrow = TRUE)
   designParams.short <- list(dimension = 2, study.area = matrix(c(tmp[1,1], tmp[2, 1], tmp[1, 2], tmp[2, 1], tmp[1, 2], tmp[2,2], tmp[1, 1], tmp[2, 2]), ncol = 2, byrow = TRUE))
+  
+  if( !is.null( seed))
+    set.seed( seed)
   
   kount <- 1
   repeat{

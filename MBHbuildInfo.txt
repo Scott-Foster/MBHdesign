@@ -5,7 +5,8 @@
 devtools::build_vignettes(pkg=".")
 tools::compactPDF(dir( "./doc", full.names=TRUE)[grep( ".pdf", dir( "./doc/"))], gs_quality = "ebook")
 #move the doc folder to be wholly contained in the inst folder.
-system( "mv -f ./doc/ ./inst/")
+system( "rm ./inst/doc/*")
+system( "mv -f ./doc ./inst/")
 #build package
 devtools::build( pkg=".", vignettes=FALSE)	#for uploading to github
 

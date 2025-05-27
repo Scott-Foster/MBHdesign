@@ -8,15 +8,15 @@
 \usage{
  quasiSamp( n, dimension=2, study.area=NULL, potential.sites=NULL, inclusion.probs=NULL,
                                 randStartType=3, nSampsToConsider=25*n, 
-				nStartsToConsider=100*n)
+				nStartsToConsider=100*n, seed=NULL)
  quasiSamp.raster( n, inclusion.probs, randStartType=3, 
-				nSampsToConsider=25*n, nStartsToConsider=100*n)
+				nSampsToConsider=25*n, nStartsToConsider=100*n, seed=NULL)
  quasiSamp.cluster( nCluster, clusterSize, clusterRadius, inclusion.probs=NULL, 
                                 working.inclusion.probs=NULL, 
 				nSampsToConsider=c(25*nCluster,25*clusterSize),
 				nStartsToConsider=100*c(nCluster, clusterSize),
 				randStartType=c(3,3),
-				mc.cores=parallel::detectCores()-1)
+				mc.cores=parallel::detectCores()-1, seed=NULL)
 }
 \arguments{
 \item{ n}{the number of samples to take.}
@@ -32,6 +32,7 @@
 \item{ nSampsToConsider}{the total number of samples to consider in the BAS step (rejection sampling). The default is 25*n, which means that 25*n halton numbers are drawn and then thinned according to the inclusion probabilities. Users will want to increase this number if inclusion probabilities are extremely unbalanced or if the number of samples required is close to, or exceeds, 25*n. Reduce if you want the code to run quicker and are confident that a sample will be found using less. For quasiSamp.cluster, nsampsToConsider is a vector of length 2. The first element specifies the number of samples to consider for sampling clusters. The second element specifies the number of samples for sampling within each cluster.}
 \item{ nStartsToConsider}{(only used when randStartType=3). For quasiSamp and quasiSamp.raster: The maximum number of times the randomisation process should be performed before giving up. Default is 100*n. If this is not enough, then consider increasing it (and probably waiting longer for your computer to finish). For quasiSamp.cluster: a two element numeric vector giving the number of starts to attempt at each level of the randomisation process.}
 \item{ mc.cores}{ When quasiSamp.cluster is called without a working.inclusion.probs argument (NULL), then \code{ \link{alterInclProbs.cluster}} is called with this many cores used.}
+\item{ seed}{Random seed to initiate randomisation.}
 }
 \details{ These function are an implementation of the balanced adaptive sampling (BAS) designs presented in Robertson et al. (2013) and Robertson et al. (2017). The former forms the basis for the methods in Foster et al (2017) and the latter is a modification of the former. The BAS approach uses Halton sequences of quasi-random numbers, which are evenly spread over space, as the basis for generating spatially balanced designs. In this implementation, we requrie that the inclusion probabilities be given as points in space and the BAS design is the set of these points that lie closest to a continuous-space Halton sequence. Computational speed has been rudimentily optimised, but (of course) it could be done better.
 
@@ -40,6 +41,9 @@ In an updated version of the package (Version 2.2.1 onwards) a raster can be pas
 From version 2.3.0 onwards, the spatial cluster sampling approach of Foster et al (in review) is implemented in quasiSamp.cluster. This method proceeds in a two-staged fashion: cluster centres are chosen and then sites are chosen within clusterRadius of these centres. Both stages are chosen using quasi random numbers in BAS (Robertson et al; 2013).
 
 In the edge case, where the number of samples is larger than the number of potential sampling points (or raster cells), the quasiSamp functions will simply sample sites multiple times. This behaviour may also be exhibited for cells with very high inclusion probabilties too, even when the sample size is larger than the number of potential sample sites. For cluster sampling, using \code{quasiSamp.cluster}, this also applies to within cluster sampling, as well as between cluster sampling.
+
+The random number seed argument (argument \code{seed}) should be used if reproducible results are required. However, note that the inclusion probabilities are scaled internally (depending on the number of samples, clusters and cluster size) so the BAS algorithm will not reproduce the same acceptance sample.
+
 }
 
 \value{The quasiSamp and quasiSamp.raster functions returns a matrix of (dimension+2) columns. The first columns (of number dimension) are the sampled sites locations. The second to last column contains the inclusion probabilities for the sampled locations. The last column is the row number (of potential.sites) that corresponds to that sampled site.
