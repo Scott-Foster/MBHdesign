@@ -26,5 +26,5 @@ The findTransFromPoint function similarly returns a character matrix containing 
 \seealso{\code{\link{transectSamp}}}
 \author{Scott D. Foster}
 \references{
-   Foster, S.D., Hosack, G.R., J. Monk, Lawrence, E., Barrett, N.S., Williams, A. and Przeslawski, P. (2020) Spatially-Balanced Designs for Transect-Based Surveys. Methods in Ecology and Evolution. emph{11}: 95--105
+   Foster, S.D., Hosack, G.R., J. Monk, Lawrence, E., Barrett, N.S., Williams, A. and Przeslawski, P. (2020) Spatially-Balanced Designs for Transect-Based Surveys. Methods in Ecology and Evolution. 11: 95--105
 }

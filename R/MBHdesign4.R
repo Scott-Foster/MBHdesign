@@ -378,10 +378,12 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
 #    inclusion.probs <- try( terra::rast( inclusion.probs), silent=TRUE)
 #  if (!inherits(inclusion.probs, "RasterLayer")) 
 #    stop("RasterLayer must be passed as input (argument inclusion.probs). It must be a RasterLayer, or something that can be coerced to a RasterLayer using raster::raster. Please revise, or use quasiSamp (not quasiSamp.raster)")
-  terra::values(inclusion.probs) <- terra::values(inclusion.probs)/max(terra::values(inclusion.probs), na.rm = TRUE)
   #saving and scaling the defined IPs
   IP.orig <- inclusion.probs
-  terra::values(IP.orig) <- terra::values(IP.orig)/sum(terra::values(IP.orig), na.rm = TRUE)
+  #IP for sampling from
+  terra::values(inclusion.probs) <- terra::values(inclusion.probs)/max(terra::values(inclusion.probs), na.rm = TRUE)
+  #IP for HT estimation
+  terra::values(IP.orig) <- n * terra::values(IP.orig)/sum(terra::values(IP.orig), na.rm = TRUE)
   tmp1 <- terra::ext(inclusion.probs)
   tmp <- matrix( tmp1[], ncol=2, byrow=TRUE)  #matrix(c(tmp1@xmin, tmp1@xmax, tmp1@ymin, tmp1@ymax), ncol = 2, byrow = TRUE)
   designParams.short <- list(dimension = 2, study.area = matrix(c(tmp[1,1], tmp[2, 1], tmp[1, 2], tmp[2, 1], tmp[1, 2], tmp[2,2], tmp[1, 1], tmp[2, 2]), ncol = 2, byrow = TRUE))

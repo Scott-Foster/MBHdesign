@@ -44,11 +44,15 @@ In the edge case, where the number of samples is larger than the number of poten
 
 The random number seed argument (argument \code{seed}) should be used if reproducible results are required. However, note that the inclusion probabilities are scaled internally (depending on the number of samples, clusters and cluster size) so the BAS algorithm will not reproduce the same acceptance sample.
 
+When you are producing an over-sample for a survey, please (!) bear in mind that the returned inclusion probabilities are scaled to sum to the number of over-samples, not the number of samples.
+
 }
 
 \value{The quasiSamp and quasiSamp.raster functions returns a matrix of (dimension+2) columns. The first columns (of number dimension) are the sampled sites locations. The second to last column contains the inclusion probabilities for the sampled locations. The last column is the row number (of potential.sites) that corresponds to that sampled site.
 
 The quasiSamp.cluster function returns a SpatialPointsDataFrame. It contains an identifier for cluster and site within cluster, the cellID from the original (inclusion.probs or working.inclusion.probs) raster, the specified inclusion probability for the cell, the cluster probability for a cluster centred at that cell, the conditional probability of sampling each cell within that cluster, and the working inclusion probabilities. The return object also contains a SpatialPointsDataFrame containing the design for the cluster.
+
+For all \code{quasiSamp} functions, the value of the inclusion probability in the return object relates to the scaled value. Scaling is done so that inclusion probabilities sum to n (or nCluster*clusterSize for \code{quasiSamp.cluster}). We note that internally, a different scaling is used (max of 1) to make sampling efficient.
 }
 \seealso{\code{\link{alterInclProbs}}, \code{\link{modEsti}}, \code{\link{alterInclProbs.cluster}}}
 

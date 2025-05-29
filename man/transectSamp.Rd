@@ -40,7 +40,11 @@ The control list contains the following elements.
  \item nCells: If no potential sites are given, then some will be created on the unit square. There will be a nCells X nCells grid.
 }
 }
-\value{The transectSamp function returns a list of two data.frames. The first data.frame (named ``transect'') contains the chosen transects' middle locations and their directions. The second data.frame (named ``points'') contains the set of points that the survey's transects are planned to pass through. These are points on each of the transects and are the points used to represent the transect during the design.}
+\value{The transectSamp function returns a list of two data.frames. The first data.frame (named ``transect'') contains the chosen transects' middle locations and their directions. The second data.frame (named ``points'') contains the set of points that the survey's transects are planned to pass through. These are points on each of the transects and are the points used to represent the transect during the design.
+
+Please note that the inclusion probabilities in the return object may not be what you want them to be. Please check them before use. However, please consider carefully whether you want to be using them at all -- would a model-based estimator, not a design-based one, be better?
+
+}
 
 \seealso{\code{\link{alterInclProbs}},\code{\link{quasiSamp},}, \code{\link{findDescendingTrans}}, \code{\link{findTransFromPoint}}}
 
