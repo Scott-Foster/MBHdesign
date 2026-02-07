@@ -381,9 +381,12 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   #saving and scaling the defined IPs
   IP.orig <- inclusion.probs
   #IP for sampling from
-  terra::values(inclusion.probs) <- terra::values(inclusion.probs)/max(terra::values(inclusion.probs), na.rm = TRUE)
+
+  ## terra::values(inclusion.probs) <- terra::values(inclusion.probs)/max(terra::values(inclusion.probs), na.rm = TRUE)
+  inclusion.probs <- inclusion.probs / (terra::global(inclusion.probs, max, na.rm = TRUE)[1,1])
   #IP for HT estimation
-  terra::values(IP.orig) <- n * terra::values(IP.orig)/sum(terra::values(IP.orig), na.rm = TRUE)
+  ##terra::values(IP.orig) <- n * terra::values(IP.orig)/sum(terra::values(IP.orig), na.rm = TRUE)
+  IP.orig <- IP.orig / (terra::global(IP.orig, sum, na.rm = TRUE)[1,1])
   tmp1 <- terra::ext(inclusion.probs)
   tmp <- matrix( tmp1[], ncol=2, byrow=TRUE)  #matrix(c(tmp1@xmin, tmp1@xmax, tmp1@ymin, tmp1@ymax), ncol = 2, byrow = TRUE)
   designParams.short <- list(dimension = 2, study.area = matrix(c(tmp[1,1], tmp[2, 1], tmp[1, 2], tmp[2, 1], tmp[1, 2], tmp[2,2], tmp[1, 1], tmp[2, 2]), ncol = 2, byrow = TRUE))
@@ -395,8 +398,11 @@ quasiSamp.raster <- function (n, inclusion.probs, randStartType = 3, nSampsToCon
   repeat{
     samp <- quasiSamp_fromhyperRect(nSampsToConsider, randStartType = randStartType, designParams = designParams.short)
     sampIDs <- terra::extract( x=inclusion.probs, y=samp[, 1:2], cells = TRUE)
-    lotsOvals <- sampIDs[, 2]
-    sampIDs <- sampIDs[, 1]
+    #lotsOvals <- sampIDs[, 2]
+    #sampIDs <- sampIDs[, 1]
+    lotsOvals <- sampIDs[, which((names(sampIDs) != "cell"))[1]]
+    sampIDs <- sampIDs[, "cell"]
+	
     sampIDs.2 <- which(samp[, 3] < lotsOvals)
     if( (length( sampIDs.2) > 0) & (randStartType!=3 | sampIDs.2[1]==1))
       break
