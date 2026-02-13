@@ -200,9 +200,9 @@
     alpha <- 0.9 * ( 1 - exp( - kount / 5))
     
     #Pieces of the pie for updating #convert rasters to numeric
-    Q <- ( QandDeriv[[1]] - terra::values( inclusion.probs))^2
+    Q <- ( QandDeriv[[1]] - inclusion.probs)^2
 #    Q <- ( QandDeriv[,1] - terra::values( inclusion.probs))^2
-    Q.dash <- 2 * ( QandDeriv[[1]] - terra::values( inclusion.probs)) * QandDeriv[[2]]
+    Q.dash <- 2 * ( QandDeriv[[1]] - inclusion.probs) * QandDeriv[[2]]
 #    Q.dash <- 2 * ( QandDeriv[,1] - terra::values( inclusion.probs)) * QandDeriv[,2]
     adj <- (Q/Q.dash)*alpha
   
